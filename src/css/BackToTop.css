@@ -1,0 +1,33 @@
+.back-to-top-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+
+  width: 55px;
+  height: 55px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #9333ea
+  );
+
+  color: white;
+  font-size: 15px;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.35);
+
+  z-index: 9999;
+
+  transition: all 0.3s ease;
+}
+
+.back-to-top-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(124, 58, 237, 0.45);
+}

@@ -1,0 +1,254 @@
+.contact-page {
+    max-width: 1200px;
+    margin: auto;
+    padding: 80px 0;
+}
+
+.contact-hero {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.contact-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #7c3aed;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+
+/* ==============================
+   FORM VALIDATION
+============================== */
+
+.field-group {
+    width: 100%;
+}
+
+.validation-error {
+    display: block;
+    color: #dc2626;
+    font-size: 13px;
+    margin-top: 5px;
+    padding-left: 4px;
+}
+
+.field.has-error input,
+.field.has-error textarea {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.08);
+}
+
+.field.has-error .field-icon {
+    color: #dc2626;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #7c3aed;
+}
+
+.contact-heading {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1e1b4b;
+}
+
+.contact-sub {
+    color: #64748b;
+    margin-top: 15px;
+    line-height: 1.8;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 30px;
+}
+
+.contact-info-card,
+.contact-form-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+}
+
+.git-title,
+.form-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.git-underline,
+.form-underline {
+    width: 60px;
+    height: 4px;
+    background: #7c3aed;
+    border-radius: 20px;
+    margin: 15px 0 25px;
+}
+
+.git-desc {
+    color: #64748b;
+    line-height: 1.8;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.info-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-icon {
+    width: 45px;
+    height: 45px;
+    background: #ede9fe;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #7c3aed;
+}
+
+.info-text strong {
+    display: block;
+}
+
+.info-text span {
+    color: #64748b;
+}
+
+.follow-label {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.socials {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.social-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #ede9fe;
+    color: #7c3aed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.field {
+    position: relative;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 15px 45px 15px 15px;
+    outline: none;
+}
+
+.field textarea {
+    height: 160px;
+    resize: none;
+}
+
+.field-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7c3aed;
+}
+
+.textarea-wrap .field-icon {
+    top: 20px;
+    transform: none;
+}
+
+.field-full {
+    margin-bottom: 15px;
+}
+
+.btn-send {
+    background: #7c3aed;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-send:hover {
+    background: #6d28d9;
+}
+
+@media(max-width:768px) {
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-heading {
+        font-size: 2.2rem;
+    }
+}
+
+/* success toast */
+.toast {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: #10b981;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 9999;
+    animation: slideIn 0.4s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

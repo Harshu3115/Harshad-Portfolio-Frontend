@@ -1,0 +1,346 @@
+/* =====================================================
+   SKILLS SECTION
+===================================================== */
+
+.skills-section {
+    padding: 20px 0;
+    background: #f8fafc;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.section-header {
+    padding: 0 20px;
+}
+
+.skill-section-label {
+    color: #8b5cf6;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+.section-title {
+    color: #ffffff;
+
+    font-size: 34px;
+    font-weight: 700;
+
+    margin: 0;
+}
+
+
+/* =====================================================
+   MARQUEE
+===================================================== */
+
+.skills-marquee {
+    width: 100%;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+/*
+    Fade edges
+*/
+
+.skills-marquee::before,
+.skills-marquee::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    width: 120px;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+
+
+
+
+
+/* =====================================================
+   TRACK
+===================================================== */
+
+.skills-track {
+
+    display: flex;
+
+    width: max-content;
+
+    gap: 20px;
+
+    animation: skills-scroll 30s linear infinite;
+
+    will-change: transform;
+}
+
+
+/*
+    IMPORTANT:
+
+    Hovering the track pauses the animation.
+*/
+
+.skills-marquee:hover .skills-track {
+    animation-play-state: paused;
+}
+
+
+/* =====================================================
+   SLIDE
+===================================================== */
+
+.skill-slide {
+
+    flex: 0 0 280px;
+
+    width: 280px;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.skill-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 24px 16px 20px;
+    text-align: center;
+    transition: .3s;
+    cursor: default;
+}
+
+
+/* =====================================================
+   CARD HOVER
+===================================================== */
+
+.skill-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 8px 28px rgba(124, 58, 237, 0.12);
+    /* transform: translateY(-4px); */
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.skill-icon {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+
+
+
+
+/* =====================================================
+   NAME
+===================================================== */
+
+.skill-name {
+    font-weight: 500;
+    font-size: .95rem;
+    color: #1e1b4b;
+    text-align: center !important;
+    margin-bottom: 10px;
+}
+
+
+/* =====================================================
+   PROGRESS BAR
+===================================================== */
+
+.skill-bar-wrap {
+    background: #e2e8f0;
+    border-radius: 4px;
+    height: 5px;
+    width: 100%;
+}
+
+
+.skill-bar {
+    height: 5px;
+    border-radius: 4px;
+    background: var(--primary);
+    transition: width 1.2s ease;
+}
+
+
+/* =====================================================
+   PERCENTAGE
+===================================================== */
+
+.skill-pct {
+    color: var(--primary);
+    font-size: .8rem;
+    font-weight: 700;
+    margin-top: 6px;
+    display: block;
+}
+
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+@keyframes skills-scroll {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+/* skill icons using images/svgs from CDN */
+.icon-html {
+    color: #e34f26;
+}
+
+.icon-css {
+    color: #1572b6;
+}
+
+.icon-js {
+    color: #f7df1e;
+    background: #f7df1e;
+    border-radius: 4px;
+    padding: 2px;
+    color: #333;
+}
+
+.icon-react {
+    color: #61dafb;
+}
+
+.icon-node {
+    color: #339933;
+}
+
+.icon-express {
+    color: #333;
+}
+
+.icon-mongo {
+    color: #47a248;
+}
+
+.icon-git {
+    color: #181717;
+}
+
+
+/* =====================================================
+   LOADING / ERROR
+===================================================== */
+
+.skills-loading,
+.skills-error {
+
+    text-align: center;
+
+    padding: 40px;
+
+    color: #929bb2;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .skills-section {
+        padding: 65px 0;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .skill-slide {
+        flex: 0 0 250px;
+        width: 250px;
+    }
+
+    .skills-track {
+        gap: 16px;
+        animation-duration: 25s;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 576px) {
+
+    .skills-section {
+        padding: 55px 0;
+    }
+
+    .section-header {
+        margin-bottom: 35px;
+    }
+
+    .section-title {
+        font-size: 25px;
+    }
+
+    .skill-slide {
+        flex: 0 0 220px;
+        width: 220px;
+    }
+
+    .skill-card {
+        /* min-height: 210px; */
+
+        padding: 25px 20px;
+    }
+
+    .skill-icon {
+        width: 58px;
+        height: 58px;
+
+        font-size: 23px;
+    }
+
+    .skills-track {
+        animation-duration: 22s;
+    }
+
+}
+
+
+
