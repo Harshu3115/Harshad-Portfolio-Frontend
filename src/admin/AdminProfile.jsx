@@ -660,7 +660,11 @@ const AdminProfile = () => {
                                         </span>
 
                                         <a
-                                            href={`${SERVER_URL}${profile.resume_url}`}
+                                            href={
+                                                profile.resume_url?.startsWith("http")
+                                                    ? profile.resume_url
+                                                    : `${SERVER_URL}${profile.resume_url}`
+                                            }
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >

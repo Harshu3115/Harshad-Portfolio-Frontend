@@ -8,17 +8,27 @@ const Navbar = () => {
 
     const [profile, setProfile] = useState(null);
 
+    // =====================================
+    // FETCH PROFILE
+    // =====================================
+
     useEffect(() => {
 
         const fetchProfile = async () => {
 
             try {
 
-                const response = await API.get("/profile");
+                const response =
+                    await API.get("/profile");
 
-                console.log("Profile:", response.data);
+                console.log(
+                    "Profile:",
+                    response.data
+                );
 
-                setProfile(response.data.data);
+                setProfile(
+                    response.data.data
+                );
 
             } catch (error) {
 
@@ -35,37 +45,51 @@ const Navbar = () => {
 
     }, []);
 
+
+    // =====================================
+    // CLOSE MOBILE NAVBAR
+    // =====================================
+
     const closeNavbar = () => {
 
-        const navMenu = document.getElementById("navMenu");
+        const navMenu =
+            document.getElementById("navMenu");
 
         if (
             navMenu &&
             navMenu.classList.contains("show")
         ) {
+
             navMenu.classList.remove("show");
+
         }
 
     };
 
-    /*
-     * Backend URL
-     *
-     * Development:
-     * http://localhost:5000
-     *
-     * Production:
-     * Your deployed backend URL
-     */
-    const BACKEND_URL =
-        import.meta.env.VITE_API_URL ||
-        "http://localhost:5000";
 
-    /*
-     * Dynamic resume URL
-     */
+    // =====================================
+    // BACKEND URL
+    // =====================================
+
+    const API_BASE_URL =
+        import.meta.env.VITE_API_BASE_URL ||
+        "http://localhost:5000/api";
+
+    const BACKEND_URL =
+        API_BASE_URL.replace("/api", "");
+
+
+    // =====================================
+    // DYNAMIC RESUME URL
+    // =====================================
+
     const resumeUrl = profile?.resume_url
-        ? `${BACKEND_URL}${profile.resume_url}`
+        ? (
+            profile.resume_url.startsWith("https://") ||
+            profile.resume_url.startsWith("http://")
+        )
+            ? profile.resume_url
+            : `${BACKEND_URL}${profile.resume_url}`
         : null;
 
 
@@ -85,7 +109,8 @@ const Navbar = () => {
 
                     <span>&lt;/&gt;</span>
 
-                    {profile?.name || "Harshad Shinde"}
+                    {profile?.name ||
+                        "Harshad Shinde"}
 
                 </NavLink>
 
@@ -207,6 +232,7 @@ const Navbar = () => {
                                 download="Harshad_Shinde_Resume.pdf"
                                 className="btn-cv download-resume"
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
 
                                 <FaDownload />
