@@ -80,11 +80,23 @@ const Projects = () => {
                     .map((category) => category.trim().toLowerCase())
                     .includes(activeFilter.toLowerCase())
             );
+    const getImageUrl = (image) => {
+        if (!image) return "";
 
+        // Fix malformed Cloudinary URL
+        const fixedImage = image.replace(/^https\/\//, "https://");
 
+        // Already a complete URL
+        if (
+            fixedImage.startsWith("https://") ||
+            fixedImage.startsWith("http://")
+        ) {
+            return fixedImage;
+        }
 
-
-
+        // Old local upload
+        return `${SERVER_URL}${fixedImage}`;
+    };
 
     // ===============================
     // LOADING
@@ -264,7 +276,7 @@ const Projects = () => {
                                             {project.image ? (
 
                                                 <img
-                                                    src={`${SERVER_URL}${project.image}`}
+                                                    src={getImageUrl(project.image)}
                                                     alt={project.title}
                                                 />
 
@@ -463,12 +475,7 @@ const Projects = () => {
 
                                             {project.image ? (
                                                 <img
-                                                    src={
-                                                        project.image.startsWith("https://") ||
-                                                            project.image.startsWith("http://")
-                                                            ? project.image
-                                                            : `${SERVER_URL}${project.image}`
-                                                    }
+                                                    src={getImageUrl(project.image)}
                                                     alt={project.title}
                                                 />
                                             ) : (

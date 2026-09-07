@@ -158,7 +158,7 @@ const AdminProjects = () => {
             }));
 
             setImagePreview(
-                URL.createObjectURL(file)
+                getImageUrl(project.image)
             );
 
             return;
@@ -193,7 +193,20 @@ const AdminProjects = () => {
         return data;
     };
 
+    const getImageUrl = (image) => {
+        if (!image) return "";
 
+        const fixedImage = image.replace(/^https\/\//, "https://");
+
+        if (
+            fixedImage.startsWith("https://") ||
+            fixedImage.startsWith("http://")
+        ) {
+            return fixedImage;
+        }
+
+        return `${SERVER_URL}${fixedImage}`;
+    };
 
 
     // =================================
@@ -760,11 +773,7 @@ const AdminProjects = () => {
                                                     <div className="project-info">
                                                         {project.image ? (
                                                             <img
-                                                                src={
-                                                                    project.image?.startsWith("http")
-                                                                        ? project.image
-                                                                        : `${SERVER_URL}${project.image}`
-                                                                }
+                                                                src={getImageUrl(project.image)}
                                                                 alt={project.title}
                                                             />
                                                         ) : (
