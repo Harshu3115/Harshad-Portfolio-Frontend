@@ -13,7 +13,7 @@ import {
 } from "react-icons/fa";
 
 import API from "../services/api";
-import axios from "axios";
+import { SERVER_URL } from "../config/appConfig";
 import Sidebar from "../components/Sidebar";
 import ConfirmModal from "../components/ConfirmModal";
 import "../css/AdminProjects.css";
@@ -255,13 +255,12 @@ const AdminProjects = () => {
             const token =
                 localStorage.getItem("adminToken");
 
-            const response = await axios.post(
-                "http://localhost:5000/api/projects",
+            const response = await API.post(
+                "/projects",
                 data,
                 {
                     headers: {
-                        Authorization:
-                            `Bearer ${token}`
+                        Authorization: `Bearer ${token}`
                     }
                 }
             );
@@ -322,7 +321,9 @@ const AdminProjects = () => {
 
         setImagePreview(
             project.image
-                ? `http://localhost:5000${project.image}`
+                ? project.image.startsWith("http")
+                    ? project.image
+                    : `${SERVER_URL}${project.image}`
                 : ""
         );
 
@@ -349,13 +350,12 @@ const AdminProjects = () => {
             const token =
                 localStorage.getItem("adminToken");
 
-            const response = await axios.put(
-                `http://localhost:5000/api/projects/${editingId}`,
+            const response = await API.put(
+                `/projects/${editingId}`,
                 data,
                 {
                     headers: {
-                        Authorization:
-                            `Bearer ${token}`
+                        Authorization: `Bearer ${token}`
                     }
                 }
             );
@@ -760,7 +760,11 @@ const AdminProjects = () => {
                                                     <div className="project-info">
                                                         {project.image ? (
                                                             <img
-                                                                src={`http://localhost:5000${project.image}`}
+                                                                src={
+                                                                    project.image?.startsWith("http")
+                                                                        ? project.image
+                                                                        : `${SERVER_URL}${project.image}`
+                                                                }
                                                                 alt={project.title}
                                                             />
                                                         ) : (
