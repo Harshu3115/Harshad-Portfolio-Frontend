@@ -462,18 +462,19 @@ const Projects = () => {
                                         <div className="project-image">
 
                                             {project.image ? (
-
                                                 <img
-                                                    src={`${SERVER_URL}${project.image}`}
+                                                    src={
+                                                        project.image.startsWith("https://") ||
+                                                            project.image.startsWith("http://")
+                                                            ? project.image
+                                                            : `${SERVER_URL}${project.image}`
+                                                    }
                                                     alt={project.title}
                                                 />
-
                                             ) : (
-
                                                 <div className="project-image-placeholder">
                                                     No Image
                                                 </div>
-
                                             )}
 
 
