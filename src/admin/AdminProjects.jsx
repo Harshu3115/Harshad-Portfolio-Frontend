@@ -13,7 +13,7 @@ import {
 } from "react-icons/fa";
 
 import API from "../services/api";
-import { SERVER_URL } from "../config/appConfig";
+import { SERVER_URL } from "../services/appConfig";
 import Sidebar from "../components/Sidebar";
 import ConfirmModal from "../components/ConfirmModal";
 import "../css/AdminProjects.css";
