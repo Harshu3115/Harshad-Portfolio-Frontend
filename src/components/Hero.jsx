@@ -31,12 +31,13 @@ const Hero = () => {
         fetchProfile();
     }, []);
 
-    const BACKEND_URL =
-        import.meta.env.VITE_API_URL ||
-        "http://localhost:5000";
-
     const resumeUrl = profile?.resume_url
-        ? `${BACKEND_URL}${profile.resume_url}`
+        ? (
+            profile.resume_url.startsWith("https://") ||
+            profile.resume_url.startsWith("http://")
+        )
+            ? profile.resume_url
+            : `${SERVER_URL}${profile.resume_url}`
         : null;
 
     return (
