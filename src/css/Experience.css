@@ -50,6 +50,10 @@ body {
     border-color: var(--primary-mid);
 }
 
+.experience-page {
+    padding-top: 80px;
+}
+
 /* ── HERO ── */
 .exp-hero {
     display: grid;
