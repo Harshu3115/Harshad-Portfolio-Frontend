@@ -36,7 +36,7 @@ const Education = () => {
                 {/* HSC */}
                 <div className="edu-card">
                     <div className="edu-year">
-                        2020 - 2022
+                        2021 - 2022
                     </div>
 
                     <div className="edu-degree">
@@ -67,7 +67,7 @@ const Education = () => {
                     </div>
 
                     <div className="edu-score">
-                        CGPA: 7.05
+                        CGPA: 7.11
                     </div>
                 </div>
 
