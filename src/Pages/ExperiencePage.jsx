@@ -80,7 +80,7 @@ const ExperiencePage = () => {
 
     return (
         <>
-            <div className="container">
+            <div className="container experience-page">
                 <div className="row">
 
                     {/* Section Label */}
