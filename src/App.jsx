@@ -27,6 +27,8 @@ import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import ForgotPassword from "./admin/ForgotPassword";
 import ResetPassword from "./admin/ResetPassword";
+import JavaResources from "./Pages/JavaResources";
+import JavaResourcesAdmin from "./admin/JavaResourcesAdmin";
 
 const HomeRoute = () => {
 
@@ -138,6 +140,7 @@ function App() {
           path="/experience"
           element={<ExperiencePage />}
         />
+        <Route path="/java-resources" element={<JavaResources />} />
         <Route
           path="/contact"
           element={<ContactPage />}
@@ -210,6 +213,10 @@ function App() {
               <AdminExperience />
             </ProtectedRoute>
           }
+        />
+        <Route
+          path="/admin/java-resources"
+          element={<JavaResourcesAdmin />}
         />
       </Routes>
       {!isAdminPage && <BackToTop />}

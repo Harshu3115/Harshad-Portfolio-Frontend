@@ -2,7 +2,7 @@
     background: #0a0a1a;
     padding: 20px 0;
     position: relative;
-    bottom: -15px;
+    bottom: 10px;
     border-radius: 25px;
 }
 
@@ -21,7 +21,7 @@
     flex-direction: column;
     gap: 12px;
     padding: 20px 16px;
-    border-right: 1px solid var(--border);
+    border-right: none !important;
     flex: 1 1 25%;
     /* 4 items per row on desktop */
     min-width: 220px;
@@ -139,5 +139,195 @@
 
     .stat-label {
         font-size: 0.72rem;
+    }
+}
+
+
+/* =========================================
+   ANIMATED STATS SECTION
+========================================= */
+
+.stats-section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid rgba(139, 92, 246, 0.18);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    animation: statsAppear 0.9s ease-out both;
+}
+
+/* Subtle moving purple glow */
+.stats-section::before {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    top: -180px;
+    left: -100px;
+    border-radius: 50%;
+    background: rgba(124, 58, 237, 0.16);
+    filter: blur(65px);
+    pointer-events: none;
+    z-index: -1;
+    animation: statsGlow 7s ease-in-out infinite alternate;
+}
+
+/* Soft decorative light */
+.stats-section::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    right: -100px;
+    bottom: -180px;
+    border-radius: 50%;
+    background: rgba(59, 130, 246, 0.12);
+    filter: blur(65px);
+    pointer-events: none;
+    z-index: -1;
+    animation: statsGlow 8s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes statsAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes statsGlow {
+    from {
+        transform: translate(0, 0) scale(0.9);
+        opacity: 0.5;
+    }
+    to {
+        transform: translate(35px, 20px) scale(1.15);
+        opacity: 1;
+    }
+}
+
+/* Individual stat cards */
+.stat-item {
+    position: relative;
+    z-index: 1;
+    /* border-radius: 16px; */
+    transition:
+        transform 0.35s ease,
+        background-color 0.35s ease,
+        box-shadow 0.35s ease;
+    animation: statItemIn 0.7s ease-out both;
+}
+
+.stat-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.stat-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.stat-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.stat-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@keyframes statItemIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-item:hover {
+    transform: translateY(-6px);
+    /* background-color: rgba(124, 58, 237, 0.07); */
+    /* box-shadow: 0 10px 28px rgba(124, 58, 237, 0.12); */
+}
+
+/* Animated icons */
+.stat-icon-home {
+    position: relative;
+    border: 1px solid rgba(167, 139, 250, 0.18);
+    transition:
+        transform 0.35s ease,
+        background-color 0.35s ease,
+        box-shadow 0.35s ease;
+    animation: iconFloat 3.5s ease-in-out infinite;
+}
+
+.stat-item:nth-child(2) .stat-icon-home {
+    animation-delay: 0.4s;
+}
+
+.stat-item:nth-child(3) .stat-icon-home {
+    animation-delay: 0.8s;
+}
+
+.stat-item:nth-child(4) .stat-icon-home {
+    animation-delay: 1.2s;
+}
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+.stat-item:hover .stat-icon-home {
+    transform: scale(1.1) rotate(-5deg);
+    background: rgba(124, 58, 237, 0.2);
+    box-shadow: 0 0 24px rgba(139, 92, 246, 0.2);
+}
+
+/* Numbers */
+.stat-num {
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+.stat-item:hover .stat-num {
+    color: #c4b5fd;
+    text-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
+}
+
+/* Labels */
+.stat-label {
+    transition: color 0.3s ease;
+}
+
+.stat-item:hover .stat-label {
+    color: #cbd5e1;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .stats-section,
+    .stats-section::before,
+    .stats-section::after,
+    .stat-item,
+    .stat-icon-home {
+        animation: none !important;
+    }
+
+    .stat-item,
+    .stat-icon-home {
+        transition: none;
     }
 }

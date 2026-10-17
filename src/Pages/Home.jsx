@@ -9,7 +9,7 @@ import ContactForm from "../components/ContactForm";
 function Home() {
     return (
         <>
-            <Hero />
+            <Hero /><br />
             <CTA_Banner />
             <About />
             <Skills />

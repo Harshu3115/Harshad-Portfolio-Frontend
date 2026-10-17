@@ -1,27 +1,42 @@
 import { useEffect, useState } from "react";
 import "../css/CTA_Banner.css";
+
 function Counter({ end }) {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
-        let start = 0;
+        let startTime;
+        const duration = 1500;
+        let animationFrame;
 
-        const timer = setInterval(() => {
-            start += 1;
+        const animate = (timestamp) => {
+            if (!startTime) startTime = timestamp;
 
-            if (start >= end) {
-                setCount(end);
-                clearInterval(timer);
+            const progress = Math.min(
+                (timestamp - startTime) / duration,
+                1
+            );
+
+            // Smooth ease-out effect
+            const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+            setCount(Math.floor(easedProgress * end));
+
+            if (progress < 1) {
+                animationFrame = requestAnimationFrame(animate);
             } else {
-                setCount(start);
+                setCount(end);
             }
-        }, 50);
+        };
 
-        return () => clearInterval(timer);
+        animationFrame = requestAnimationFrame(animate);
+
+        return () => cancelAnimationFrame(animationFrame);
     }, [end]);
 
     return <span>{count}</span>;
 }
+
 
 const stats = [
     {

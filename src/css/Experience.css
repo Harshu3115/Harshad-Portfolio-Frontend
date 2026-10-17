@@ -615,7 +615,7 @@ body {
 .side-card {
     background: var(--white);
     border-radius: 14px;
-    padding: 20px;
+    padding: 10px 20px 20px 10px ;
     margin-top: 20px;
     box-shadow: var(--card-shadow);
     border: 1px solid var(--border);
@@ -646,6 +646,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    padding: 8px !important;
 }
 
 .gained-item {
@@ -722,7 +723,7 @@ body {
     align-items: center;
     gap: 16px;
     padding: 0 1.5rem;
-    border-right: 1px solid var(--border);
+    border-right: 1px solid var(--border) !important;
 }
 
 .stat-item:first-child {
@@ -929,5 +930,485 @@ body {
 @media (max-width: 600px) {
     .page {
         padding: 40px 1rem 60px;
+    }
+}
+
+
+/* =========================================
+   EXPERIENCE PAGE — PREMIUM ANIMATIONS
+========================================= */
+
+/* Main section */
+.experience-page {
+    animation: expPageEnter 0.7s ease both;
+}
+
+@keyframes expPageEnter {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   SECTION LABEL
+========================================= */
+
+.section-label {
+    animation: expLabelEnter 0.7s ease both;
+}
+
+.section-label .dot-lbl {
+    animation: expDotPulse 2s ease-in-out infinite;
+}
+
+.section-label::after {
+    transform-origin: left;
+    animation: expLineReveal 0.7s ease 0.3s both;
+}
+
+@keyframes expLabelEnter {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes expDotPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.25);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(124, 58, 237, 0.08);
+    }
+}
+
+@keyframes expLineReveal {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+/* =========================================
+   TIMELINE LINE
+========================================= */
+
+.timeline-wrap::before {
+    transform-origin: top;
+    animation: expTimelineDraw 1.5s ease both;
+}
+
+@keyframes expTimelineDraw {
+    from {
+        transform: translateX(-50%) scaleY(0);
+    }
+    to {
+        transform: translateX(-50%) scaleY(1);
+    }
+}
+
+/* =========================================
+   EXPERIENCE ROWS
+========================================= */
+
+.tl-row {
+    animation: expRowEnter 0.7s ease both;
+}
+
+.tl-row:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.tl-row:nth-child(2) {
+    animation-delay: 0.22s;
+}
+
+.tl-row:nth-child(3) {
+    animation-delay: 0.34s;
+}
+
+.tl-row:nth-child(4) {
+    animation-delay: 0.46s;
+}
+
+.tl-row:nth-child(n + 5) {
+    animation-delay: 0.55s;
+}
+
+@keyframes expRowEnter {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   EXPERIENCE CARDS
+========================================= */
+
+.tl-card {
+    border-color: var(--border);
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.tl-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(124, 58, 237, 0.4);
+    box-shadow: 0 18px 40px rgba(91, 33, 182, 0.13);
+}
+
+/* Card icon */
+.tl-icon {
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.tl-card:hover .tl-icon {
+    transform: translateY(-3px) rotate(-6deg);
+    background: #ddd6fe;
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.14);
+}
+
+/* Job title and company */
+.tl-job {
+    transition: color 0.3s ease;
+}
+
+.tl-card:hover .tl-job {
+    color: var(--primary-light);
+}
+
+.tl-company {
+    transition: letter-spacing 0.3s ease;
+}
+
+.tl-card:hover .tl-company {
+    letter-spacing: 0.2px;
+}
+
+/* Current badge */
+.tl-current {
+    animation: expCurrentPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes expCurrentPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.08);
+    }
+}
+
+/* =========================================
+   TIMELINE DOTS
+========================================= */
+
+.tl-dot {
+    position: relative;
+    animation: expDotAppear 0.5s ease both;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.tl-dot::after {
+    content: "";
+    position: absolute;
+    inset: -7px;
+    border: 1px solid rgba(124, 58, 237, 0.35);
+    border-radius: 50%;
+    animation: expDotRing 2.5s ease-out infinite;
+}
+
+.tl-row:hover .tl-dot {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 5px rgba(124, 58, 237, 0.12);
+}
+
+@keyframes expDotAppear {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes expDotRing {
+    0% {
+        transform: scale(0.75);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Dates */
+.tl-year {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.tl-row:hover .tl-year {
+    color: var(--primary);
+    transform: translateX(3px);
+}
+
+/* =========================================
+   SIDEBAR CARDS
+========================================= */
+
+.sidebar .side-card {
+    animation: expSidebarEnter 0.7s ease both;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.sidebar .side-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.sidebar .side-card:nth-child(2) {
+    animation-delay: 0.35s;
+}
+
+@keyframes expSidebarEnter {
+    from {
+        opacity: 0;
+        transform: translateX(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.sidebar .side-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(124, 58, 237, 0.3);
+    box-shadow: 0 16px 36px rgba(91, 33, 182, 0.11);
+}
+
+.side-title-icon {
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease;
+}
+
+.side-card:hover .side-title-icon {
+    transform: rotate(-8deg) scale(1.08);
+    background: #ddd6fe;
+}
+
+/* Gained skills checklist */
+.gained-item {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.gained-item:hover {
+    transform: translateX(4px);
+    color: var(--text);
+}
+
+.gained-check {
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.gained-item:hover .gained-check {
+    transform: scale(1.12);
+    background: var(--primary-light);
+    color: #fff;
+}
+
+/* =========================================
+   TOOLS ICONS
+========================================= */
+
+.tool-item {
+    animation: expToolEnter 0.5s ease both;
+    transition: transform 0.3s ease;
+}
+
+.tool-item:nth-child(1) { animation-delay: 0.08s; }
+.tool-item:nth-child(2) { animation-delay: 0.14s; }
+.tool-item:nth-child(3) { animation-delay: 0.2s; }
+.tool-item:nth-child(4) { animation-delay: 0.26s; }
+.tool-item:nth-child(5) { animation-delay: 0.32s; }
+.tool-item:nth-child(6) { animation-delay: 0.38s; }
+.tool-item:nth-child(7) { animation-delay: 0.44s; }
+.tool-item:nth-child(8) { animation-delay: 0.5s; }
+.tool-item:nth-child(9) { animation-delay: 0.56s; }
+
+@keyframes expToolEnter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tool-icon {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.tool-item:hover .tool-icon {
+    transform: translateY(-5px) scale(1.07);
+    box-shadow: 0 10px 22px rgba(124, 58, 237, 0.14);
+    background: #ede9fe;
+}
+
+.tool-name {
+    transition: color 0.3s ease;
+}
+
+.tool-item:hover .tool-name {
+    color: var(--primary-light);
+}
+
+/* =========================================
+   STATS COMPONENT
+========================================= */
+
+.stats-bar {
+    animation: expStatsEnter 0.8s ease 0.2s both;
+    transition:
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+@keyframes expStatsEnter {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stats-bar:hover {
+    border-color: rgba(124, 58, 237, 0.3);
+    box-shadow: 0 16px 40px rgba(91, 33, 182, 0.1);
+}
+
+.stat-item {
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-3px);
+}
+
+.stat-icon {
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease;
+}
+
+.stat-item:hover .stat-icon {
+    transform: scale(1.08) rotate(-5deg);
+    background: #ddd6fe;
+}
+
+.stat-num {
+    transition: text-shadow 0.3s ease;
+}
+
+.stat-item:hover .stat-num {
+    text-shadow: 0 5px 18px rgba(124, 58, 237, 0.2);
+}
+
+/* =========================================
+   EXISTING REVEAL SUPPORT
+========================================= */
+
+.reveal {
+    will-change: opacity, transform;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   MOBILE POLISH
+========================================= */
+
+@media (max-width: 768px) {
+    .tl-card:hover {
+        transform: translateY(-2px);
+    }
+
+    .sidebar .side-card:hover {
+        transform: translateY(-2px);
+    }
+
+    .stat-item:hover {
+        transform: none;
+    }
+
+    .tl-dot::after {
+        animation-duration: 3.5s;
+    }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .experience-page,
+    .section-label,
+    .section-label .dot-lbl,
+    .section-label::after,
+    .timeline-wrap::before,
+    .tl-row,
+    .tl-dot,
+    .tl-dot::after,
+    .tl-current,
+    .sidebar .side-card,
+    .tool-item,
+    .stats-bar {
+        animation: none !important;
+    }
+
+    .tl-card,
+    .tl-icon,
+    .tl-year,
+    .side-card,
+    .tool-icon,
+    .stat-item {
+        transition: none !important;
     }
 }

@@ -488,3 +488,263 @@ body {
         font-size: 1rem;
     }
 }
+
+
+/* =========================================
+   ABOUT PAGE — ANIMATION ENHANCEMENTS
+========================================= */
+
+.about-page-container,
+.about-purpose-section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Main content entrance */
+.about-content-left {
+    animation: aboutContentEnter 0.8s ease both;
+}
+
+.about-image-card {
+    animation: aboutImageEnter 0.9s ease both;
+    transition: box-shadow 0.4s ease;
+}
+
+@keyframes aboutContentEnter {
+    from {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes aboutImageEnter {
+    from {
+        opacity: 0;
+        transform: translateX(35px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* Gradient heading */
+.about-page-heading,
+.about-purpose-heading {
+    background: linear-gradient(
+        100deg,
+        #1e1b4b,
+        #7c3aed,
+        #06b6d4,
+        #1e1b4b
+    );
+    background-size: 250% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: aboutHeadingShimmer 7s linear infinite;
+}
+
+@keyframes aboutHeadingShimmer {
+    to {
+        background-position: 250% center;
+    }
+}
+
+/* Profile image hover */
+.about-image-card {
+    box-shadow: 0 15px 40px rgba(91, 33, 182, 0.12);
+}
+
+.about-image-wrapper {
+    overflow: hidden;
+}
+
+.about-profile-image {
+    transition:
+        transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1),
+        filter 0.5s ease;
+}
+
+.about-image-card:hover .about-profile-image {
+    transform: scale(1.045);
+    filter: saturate(1.08);
+}
+
+.about-image-card:hover {
+    box-shadow: 0 22px 55px rgba(91, 33, 182, 0.2);
+}
+
+/* Info icon interaction */
+.about-info-item {
+    transition: transform 0.3s ease;
+}
+
+.about-info-item:hover {
+    transform: translateX(6px);
+}
+
+.about-info-icon {
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.about-info-item:hover .about-info-icon {
+    transform: scale(1.08) rotate(-7deg);
+    background: #7c3aed;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.22);
+}
+
+/* Signature underline */
+.sig-line {
+    transform-origin: left;
+    animation: signatureLineEnter 1s ease 0.5s both;
+}
+
+@keyframes signatureLineEnter {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+/* Stats section */
+.about-stats-section {
+    box-shadow: 0 12px 35px rgba(91, 33, 182, 0.06);
+    transition:
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.about-stats-section:hover {
+    border-color: rgba(124, 58, 237, 0.3);
+    box-shadow: 0 18px 45px rgba(91, 33, 182, 0.1);
+}
+
+.about-stat-card {
+    transition: transform 0.35s ease;
+}
+
+.about-stat-card:hover {
+    transform: translateY(-6px);
+}
+
+.about-stat-icon {
+    transition:
+        transform 0.35s ease,
+        color 0.35s ease;
+}
+
+.about-stat-card:hover .about-stat-icon {
+    color: #7c3aed;
+    transform: scale(1.15) rotate(-5deg);
+}
+
+.about-stat-number {
+    transition: text-shadow 0.3s ease;
+}
+
+.about-stat-card:hover .about-stat-number {
+    text-shadow: 0 5px 18px rgba(124, 58, 237, 0.2);
+}
+
+/* Mission / Vision / Goals cards */
+.about-purpose-header {
+    animation: purposeHeaderEnter 0.8s ease both;
+}
+
+@keyframes purposeHeaderEnter {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-purpose-card {
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.about-purpose-card:hover {
+    transform: translateY(-9px);
+    border-color: rgba(124, 58, 237, 0.25);
+    box-shadow: 0 20px 45px rgba(91, 33, 182, 0.13);
+}
+
+.about-purpose-icon {
+    transition:
+        transform 0.4s ease,
+        border-radius 0.4s ease;
+}
+
+.about-purpose-card:hover .about-purpose-icon {
+    transform: translateY(-3px) rotate(-6deg);
+    border-radius: 18px;
+}
+
+.about-purpose-number {
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.about-purpose-card:hover .about-purpose-number {
+    color: #7c3aed;
+    transform: scale(1.12);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .about-content-left,
+    .about-image-card {
+        animation-name: aboutContentEnter;
+        animation-duration: 0.7s;
+    }
+
+    .about-purpose-card:hover {
+        transform: translateY(-3px);
+    }
+
+    .about-stat-card:hover {
+        transform: translateY(-3px);
+    }
+
+    .about-info-item:hover {
+        transform: translateX(2px);
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .about-content-left,
+    .about-image-card,
+    .about-page-heading,
+    .about-purpose-heading,
+    .about-purpose-header,
+    .sig-line {
+        animation: none !important;
+    }
+
+    .about-page-container *,
+    .about-purpose-section *,
+    .about-page-container *::before,
+    .about-purpose-section *::before {
+        transition: none !important;
+    }
+}

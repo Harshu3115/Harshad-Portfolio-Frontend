@@ -76,6 +76,12 @@ const Sidebar = ({
             path: "/admin/messages",
             icon: FaEnvelope,
             badge: true
+        },
+        {
+            label: "Java Resources",
+            path: "/admin/java-resources",
+            icon: FaEnvelope,
+            badge: true
         }
     ];
 

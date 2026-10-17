@@ -21,6 +21,36 @@ const Projects = () => {
 
 
 
+    useEffect(() => {
+        const section = document.querySelector(".projects-section");
+
+        if (!section) return;
+
+        const cards = section.querySelectorAll(
+            ".projects-slider-track .project-card:not(.project-card-clone)"
+        );
+
+        if (!("IntersectionObserver" in window)) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("project-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.1,
+            }
+        );
+
+        cards.forEach((card) => observer.observe(card));
+
+        return () => observer.disconnect();
+    }, [projects, loading, activeFilter]);
+
 
     // ===============================
     // FETCH PROJECTS

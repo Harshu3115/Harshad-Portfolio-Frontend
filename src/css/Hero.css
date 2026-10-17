@@ -563,3 +563,279 @@
     }
 
 }
+
+
+
+/* =========================================
+   HERO SECTION - ANIMATION ENHANCEMENTS
+========================================= */
+
+/* Smooth animated background glow */
+.hero::before {
+    animation: heroGlow 8s ease-in-out infinite alternate;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.22;
+    background-image: radial-gradient(
+        rgba(167, 139, 250, 0.7) 1px,
+        transparent 1px
+    );
+    background-size: 35px 35px;
+    mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+    );
+    animation: backgroundDrift 18s linear infinite;
+}
+
+@keyframes heroGlow {
+    from {
+        opacity: 0.5;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.12);
+    }
+}
+
+@keyframes backgroundDrift {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 70px 70px;
+    }
+}
+
+/* Left content entrance */
+.hero .col-lg-6:first-child {
+    animation: heroContentIn 0.9s ease-out both;
+}
+
+@keyframes heroContentIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered entrance for text */
+.hero-hello {
+    animation: fadeInUp 0.7s 0.1s ease-out both;
+}
+
+.hero-name {
+    background: linear-gradient(
+        100deg,
+        #ffffff 10%,
+        #ff5bec 45%,
+        #ff5bec 70%,
+        #ffffff 95%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation:
+        fadeInUp 0.8s 0.2s ease-out both,
+        nameShimmer 6s 1s linear infinite;
+}
+
+.hero-title {
+    animation: fadeInUp 0.8s 0.35s ease-out both;
+}
+
+.hero-desc {
+    animation: fadeInUp 0.8s 0.5s ease-out both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes nameShimmer {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Buttons */
+.btn-hire,
+.btn-work {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.btn-hire:hover,
+.btn-work:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.25);
+}
+
+.btn-hire:active,
+.btn-work:active {
+    transform: scale(0.97);
+}
+
+/* Social icon hover */
+.hero-socials a {
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.hero-socials a:hover {
+    transform: translateY(-5px) rotate(5deg);
+    box-shadow: 0 8px 22px rgba(139, 92, 246, 0.3);
+}
+
+/* Image section entrance */
+.hero-img-wrap {
+    animation: imageReveal 1s 0.15s ease-out both;
+}
+
+@keyframes imageReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.88) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Floating profile image */
+.hero-circle-wrap {
+    animation: profileFloat 5s ease-in-out infinite;
+}
+
+@keyframes profileFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Fix the existing ring animation */
+.hero-circle-ring {
+    animation: spin 18s linear infinite;
+    will-change: transform;
+}
+
+.hero-circle-ring.ring-2 {
+    animation: spin 30s linear infinite reverse;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Image hover glow */
+.hero-img {
+    transition:
+        box-shadow 0.5s ease,
+        border-color 0.5s ease;
+}
+
+.hero-circle-wrap:hover .hero-img {
+    border-color: #a78bfa;
+    box-shadow:
+        0 0 0 8px rgba(124, 58, 237, 0.18),
+        0 0 40px rgba(139, 92, 246, 0.55);
+}
+
+/* Floating info cards */
+.card-code {
+    animation: floatCard 4s ease-in-out infinite;
+}
+
+.card-fast {
+    animation: floatCard 4.5s 0.6s ease-in-out infinite;
+}
+
+.card-resp {
+    animation: floatCard 3.8s 1s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* Accent dots */
+.dot-a {
+    animation: dotPulse 3s ease-in-out infinite;
+}
+
+.dot-b {
+    animation: dotPulse 3s 1.5s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.35);
+    }
+}
+
+/* Accessibility: respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+    .hero *,
+    .hero::before,
+    .hero::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .hero .col-lg-6:first-child,
+    .hero-img-wrap {
+        opacity: 1;
+        transform: none;
+    }
+
+    .hero-name {
+        background: none;
+        -webkit-text-fill-color: #c4b5fd;
+    }
+}

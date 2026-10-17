@@ -79,7 +79,7 @@ export default function JavaResourcesAdmin() {
 
         try {
 
-            const response = await API.get("/java-resources/admin");
+            const response = await API.get("/java-resources");
 
             setResources(response.data.data || []);
 
@@ -199,35 +199,32 @@ export default function JavaResourcesAdmin() {
 
         try {
 
+
             const data = new FormData();
 
-            Object.entries(form).forEach(([key, value]) => {
+            data.append("title", form.title);
+            data.append("description", form.description);
+            data.append("category", form.category);
+            data.append("resource_type", form.resource_type);
+            data.append("is_published", form.is_published ? "1" : "0");
 
-                data.append(key, String(value));
-
-            });
-
-            if (pdf) data.append("pdf", pdf);
+            if (pdf) {
+                data.append("pdf", pdf);
+            }
 
             if (editingId) {
-
                 await API.put(
-
                     `/java-resources/admin/${editingId}`,
-
                     data
-
                 );
 
                 setMessage("Resource updated successfully!");
-
             } else {
-
-                await API.post("/java-resources/admin", data);
+                await API.post("/java-resources", data);
 
                 setMessage("Resource added successfully!");
-
             }
+
 
             resetForm();
 

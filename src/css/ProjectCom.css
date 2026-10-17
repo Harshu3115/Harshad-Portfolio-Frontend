@@ -577,3 +577,266 @@
 .projects-slider-track .project-card:hover {
     cursor: pointer;
 }
+
+
+/* ========================================
+   PROJECTS SECTION — ANIMATION ENHANCEMENTS
+======================================== */
+
+.projects-section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+/* Subtle animated background glow */
+.projects-section::before,
+.projects-section::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: -1;
+    animation: projectGlowFloat 10s ease-in-out infinite alternate;
+}
+
+.projects-section::before {
+    top: 5%;
+    left: -150px;
+    background: #7c3aed;
+}
+
+.projects-section::after {
+    right: -150px;
+    bottom: 5%;
+    background: #06b6d4;
+    animation-delay: -5s;
+}
+
+@keyframes projectGlowFloat {
+    from {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    to {
+        transform: translate3d(40px, 35px, 0) scale(1.2);
+    }
+}
+
+/* Header entrance animation */
+.projects-header {
+    animation: projectHeaderEnter 0.8s ease both;
+}
+
+@keyframes projectHeaderEnter {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animated section label */
+.skill-section-label {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.skill-section-label::after {
+    content: "";
+    display: block;
+    width: 35px;
+    height: 2px;
+    margin-top: 7px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #7c3aed, #06b6d4);
+    transition: width 0.4s ease;
+}
+
+.projects-header:hover .skill-section-label::after {
+    width: 75px;
+}
+
+/* Heading gradient animation */
+.skill-section-title {
+    background: linear-gradient(
+        90deg,
+        #0f172a,
+        #7c3aed,
+        #0f172a
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: projectTitleShimmer 6s linear infinite;
+}
+
+@keyframes projectTitleShimmer {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* View all button */
+.view-all-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.view-all-btn i {
+    transition: transform 0.3s ease;
+}
+
+.view-all-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* Project card hover polish */
+.project-card {
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+    transform-origin: center;
+}
+
+.project-card:hover {
+    filter: drop-shadow(0 15px 25px rgba(124, 58, 237, 0.12));
+}
+
+/* Improve front card appearance */
+.project-card-front {
+    transition:
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.project-card:hover .project-card-front {
+    border-color: rgba(124, 58, 237, 0.3);
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.12);
+}
+
+/* Image zoom only — not the entire card */
+.project-image img {
+    transition:
+        transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1),
+        filter 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.08);
+    filter: saturate(1.12);
+}
+
+/* Project number badge */
+.project-number {
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease;
+}
+
+.project-card:hover .project-number {
+    transform: translateY(-3px);
+    background: #ffffff;
+}
+
+/* Category tag animations */
+.project-tags .tag {
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        background 0.25s ease;
+}
+
+.project-tags .tag:hover {
+    transform: translateY(-3px);
+}
+
+/* Back side icon animation */
+.back-icon {
+    animation: githubIconFloat 3s ease-in-out infinite;
+}
+
+@keyframes githubIconFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateY(-7px) rotate(-5deg);
+    }
+}
+
+/* Back side buttons */
+.back-actions a {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.back-actions a:hover {
+    transform: translateY(-3px);
+}
+
+/* Mobile slider: keep animation smooth */
+@media (max-width: 768px) {
+    .projects-slider-track {
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+
+    .projects-slider-track .project-card:hover {
+        filter: none;
+    }
+
+    .projects-slider-track .project-card:hover .project-image img {
+        transform: scale(1.04);
+    }
+}
+
+/* Respect accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+    .projects-section::before,
+    .projects-section::after,
+    .projects-header,
+    .skill-section-title,
+    .back-icon {
+        animation: none !important;
+    }
+
+    .project-card,
+    .project-card-inner,
+    .project-image img,
+    .view-all-btn,
+    .back-actions a {
+        transition: none !important;
+    }
+}
+
+
+/* Scroll reveal for project cards */
+@media (min-width: 769px) {
+    .projects-slider-track .project-card {
+        opacity: 0;
+        transform: translateY(25px);
+        transition:
+            opacity 0.6s ease,
+            transform 0.6s ease,
+            filter 0.35s ease;
+    }
+
+    .projects-slider-track .project-card.project-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .projects-slider-track .project-card.project-visible:hover {
+        transform: translateY(-4px);
+    }
+}

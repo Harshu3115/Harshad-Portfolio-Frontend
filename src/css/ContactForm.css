@@ -252,3 +252,327 @@
         transform: translateX(0);
     }
 }
+
+
+
+/* ==========================================
+   CONTACT PAGE — PREMIUM ANIMATIONS
+========================================== */
+
+
+
+
+
+@keyframes contactGlow {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(35px, 30px) scale(1.2);
+    }
+}
+
+/* Hero entrance */
+.contact-hero {
+    animation: contactHeroEnter 0.8s ease both;
+}
+
+@keyframes contactHeroEnter {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contact label dots */
+.contact-label .dot {
+    animation: dotPulse 1.8s ease-in-out infinite;
+    box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4);
+}
+
+.contact-label .dot:last-child {
+    animation-delay: 0.9s;
+}
+
+@keyframes dotPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.25);
+    }
+
+    50% {
+        transform: scale(1.2);
+        box-shadow: 0 0 0 7px rgba(124, 58, 237, 0);
+    }
+}
+
+/* Animated gradient heading */
+.contact-heading {
+    background: linear-gradient(
+        100deg,
+        #1e1b4b 10%,
+        #7c3aed 45%,
+        #06b6d4 65%,
+        #1e1b4b 90%
+    );
+    background-size: 220% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: contactHeadingShimmer 6s linear infinite;
+}
+
+@keyframes contactHeadingShimmer {
+    to {
+        background-position: 220% center;
+    }
+}
+
+/* Cards */
+.contact-info-card,
+.contact-form-card {
+    position: relative;
+    border: 1px solid rgba(124, 58, 237, 0.08);
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+    animation: contactCardEnter 0.8s ease both;
+}
+
+.contact-info-card {
+    animation-delay: 0.12s;
+}
+
+.contact-form-card {
+    animation-delay: 0.25s;
+}
+
+@keyframes contactCardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-info-card:hover,
+.contact-form-card:hover {
+    border-color: rgba(124, 58, 237, 0.2);
+    box-shadow: 0 18px 45px rgba(30, 27, 75, 0.11);
+}
+
+/* Animated underline */
+.git-underline,
+.form-underline {
+    transition: width 0.4s ease;
+}
+
+.contact-info-card:hover .git-underline,
+.contact-form-card:hover .form-underline {
+    width: 90px;
+}
+
+/* Contact information icons */
+.info-icon {
+    flex-shrink: 0;
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.info-item {
+    transition: transform 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateX(5px);
+}
+
+.info-item:hover .info-icon {
+    transform: rotate(-8deg) scale(1.08);
+    background: #7c3aed;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.22);
+}
+
+/* Social buttons */
+.social-btn {
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-5px) rotate(5deg);
+    background: #7c3aed;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.25);
+}
+
+/* Input focus animations */
+.field input,
+.field textarea {
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.field input:hover,
+.field textarea:hover {
+    border-color: rgba(124, 58, 237, 0.45);
+}
+
+.field input:focus,
+.field textarea:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.1);
+    background: #fdfcff;
+}
+
+.field:focus-within .field-icon {
+    color: #6d28d9;
+    transition: color 0.3s ease;
+}
+
+/* Validation error transition */
+.validation-error {
+    animation: errorAppear 0.25s ease both;
+}
+
+@keyframes errorAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Send button */
+.btn-send {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.btn-send::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(
+        100deg,
+        transparent,
+        rgba(255, 255, 255, 0.25),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+}
+
+.btn-send:hover:not(:disabled)::before {
+    left: 150%;
+}
+
+.btn-send:hover:not(:disabled) {
+    transform: translateY(-3px);
+    background: #6d28d9;
+    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+}
+
+.btn-send:active:not(:disabled) {
+    transform: translateY(-1px) scale(0.98);
+}
+
+.btn-send:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Success toast */
+.toast {
+    box-shadow: 0 12px 35px rgba(16, 185, 129, 0.25);
+    animation: toastEnter 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes toastEnter {
+    from {
+        opacity: 0;
+        transform: translateX(40px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .contact-page {
+        padding: 60px 18px;
+    }
+
+    .contact-heading {
+        font-size: 2.2rem;
+    }
+
+    .contact-info-card:hover,
+    .contact-form-card:hover {
+        transform: none;
+    }
+
+    .info-item:hover {
+        transform: translateX(2px);
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .contact-page::before,
+    .contact-page::after,
+    .contact-hero,
+    .contact-heading,
+    .contact-label .dot,
+    .contact-info-card,
+    .contact-form-card,
+    .toast,
+    .validation-error {
+        animation: none !important;
+    }
+
+    .contact-page *,
+    .contact-page *::before,
+    .contact-page *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}

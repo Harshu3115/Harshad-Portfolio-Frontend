@@ -204,6 +204,17 @@ const Navbar = () => {
                             </NavLink>
 
                         </li>
+                        <li className="nav-item">
+
+                            <NavLink
+                                className="nav-link"
+                                to="/java-resources"
+                                onClick={closeNavbar}
+                            >
+                                Java Resources
+                            </NavLink>
+
+                        </li>
 
 
                         <li className="nav-item">
