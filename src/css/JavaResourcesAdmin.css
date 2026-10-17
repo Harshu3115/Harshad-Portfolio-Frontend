@@ -1,0 +1,392 @@
+
+.jra-admin-page {
+    display: flex;
+    min-height: 100vh;
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.jra-admin-page .admin-main {
+    flex: 1;
+    min-width: 0;
+    width: calc(100% - 260px);
+    margin-left: 260px;
+    /* padding: 0px 28px 0px 28px; */
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+.admin-java-resources{
+    padding: 32px;
+}
+
+.jra-admin-page .admin-main.sidebar-collapsed-main {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+}
+
+.jra-admin-page .admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.jra-admin-page .admin-header h1 {
+    margin: 0;
+    font-size: 26px;
+    color: #0f172a;
+}
+
+.jra-admin-page .admin-header p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #64748b;
+}
+
+.jra-admin-page .header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.jra-action-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.jra-add-btn,
+.jra-form-actions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #6366f1;
+    color: #fff;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.jra-add-btn:hover,
+.jra-form-actions button:hover {
+    background: #4f46e5;
+}
+
+.jra-form-card,
+.jra-table-card {
+    margin-bottom: 24px;
+    overflow: hidden;
+    background: #fff;
+}
+
+
+
+
+.badge-dot {
+    width: 8px !important;
+    height: 8px !important;
+    background: #22c55e !important;
+    border-radius: 50% !important;
+    display: inline-block !important;
+    animation: pulse-dot 2s infinite !important;
+}
+
+.jra-form-card {
+    padding: 24px;
+}
+
+.jra-form-card h2,
+.jra-table-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.jra-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 22px;
+}
+
+.jra-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.jra-form-group label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.jra-form-group input,
+.jra-form-group select,
+.jra-form-group textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+    background: #f8fafc;
+    color: #0f172a;
+    font: inherit;
+    font-size: 13px;
+}
+
+.jra-form-group input:focus,
+.jra-form-group select:focus,
+.jra-form-group textarea:focus {
+    outline: none;
+    border-color: #6366f1;
+    background: #fff;
+}
+
+.jra-form-group small {
+    color: #64748b;
+    font-size: 11px;
+}
+
+.jra-full-width {
+    grid-column: 1 / -1;
+}
+
+.jra-publish {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 20px 0;
+    color: #334155;
+    font-size: 13px;
+}
+
+.jra-publish input {
+    accent-color: #6366f1;
+}
+
+.jra-form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.jra-form-actions button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.jra-form-actions .jra-cancel-btn {
+    border: 1px solid #e2e8f0;
+    background: #f1f5f9;
+    color: #334155;
+}
+
+.jra-form-actions .jra-cancel-btn:hover {
+    background: #e2e8f0;
+}
+
+.jra-table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 18px 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.jra-table-header .available-badge {
+    padding: 4px 10px;
+    border-radius: 10px;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 12px;
+}
+
+.jra-table-wrapper {
+    overflow-x: auto;
+}
+
+.jra-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.jra-table thead {
+    background: #f8fafc;
+}
+
+.jra-table th {
+    padding: 13px 16px;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: left;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.jra-table td {
+    padding: 14px 16px;
+    border-top: 1px solid #f1f5f9;
+    vertical-align: middle;
+}
+
+.jra-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.jra-resource-name {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    min-width: 190px;
+}
+
+.jra-resource-name > svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+    color: #6366f1;
+    font-size: 20px;
+}
+
+.jra-resource-name strong,
+.jra-resource-name small {
+    display: block;
+    overflow-wrap: anywhere;
+}
+
+.jra-resource-name strong {
+    color: #0f172a;
+}
+
+.jra-resource-name small {
+    max-width: 260px;
+    margin-top: 4px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.jra-status {
+    display: inline-block;
+    padding: 4px 9px;
+    border-radius:5px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.jra-status.published {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.jra-status.draft {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.jra-table-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.jra-table-actions a,
+.jra-table-actions button {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background: #fff;
+    color: #334155;
+    font: inherit;
+    font-size: 11px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.jra-table-actions a:hover,
+.jra-table-actions button:hover {
+    border-color: #6366f1;
+    color: #4f46e5;
+}
+
+.jra-table-actions .jra-delete-btn {
+    border-color: #fecaca;
+    color: #dc2626;
+}
+
+.jra-table-actions .jra-delete-btn:hover {
+    background: #fef2f2;
+}
+
+.jra-success,
+.jra-error {
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.jra-success {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.jra-error {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.jra-empty {
+    padding: 24px;
+    color: #64748b;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .jra-admin-page .admin-main {
+        padding: 22px 18px;
+    }
+
+    .jra-table {
+        min-width: 760px;
+    }
+}
+
+@media (max-width: 650px) {
+    .jra-admin-page .admin-main,
+    .jra-admin-page .admin-main.sidebar-collapsed-main {
+        width: 100%;
+        margin-left: 0;
+        padding: 18px 14px;
+    }
+
+    .jra-admin-page .admin-header h1 {
+        font-size: 22px;
+    }
+
+    .jra-form-card {
+        padding: 18px;
+    }
+
+    .jra-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .jra-full-width {
+        grid-column: auto;
+    }
+}
