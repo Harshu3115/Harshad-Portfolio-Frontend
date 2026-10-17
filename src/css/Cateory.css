@@ -1,0 +1,32 @@
+/* ── FILTER TABS ── */
+.filter-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 36px;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    border: 1.5px solid var(--border);
+    border-radius: 999px;
+    background: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-size: .85rem;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.filter-btn:hover {
+    border-color: var(--primary-light);
+    color: var(--primary-light);
+}
+
+.filter-btn.active {
+    background: var(--primary-light);
+    color: #fff;
+    border-color: var(--primary-light);
+}

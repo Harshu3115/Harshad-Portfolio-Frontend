@@ -1,0 +1,202 @@
+/* =========================
+   STATS BAR
+========================= */
+
+.stats-bar {
+    width: 100% !important;
+
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+
+    gap: 0 !important;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    padding: 25px 10px;
+
+    margin: 35px 0 0;
+
+    box-sizing: border-box;
+
+    position: relative;
+    z-index: 5;
+
+    color: #1e1b4b;
+}
+
+
+/* =========================
+   STAT ITEM
+========================= */
+
+.stats-bar .stat-item {
+    width: 100% !important;
+    min-width: 0;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 10px;
+
+    padding: 10px 15px;
+
+    background: transparent !important;
+
+    border: none !important;
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+
+    color: #1e1b4b !important;
+
+    position: relative;
+}
+
+
+/* Vertical divider */
+
+.stats-bar .stat-item:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+    top: 5px;
+    bottom: 5px;
+
+    width: 1px;
+
+    background: #e2e8f0;
+}
+
+
+/* =========================
+   ICON
+========================= */
+
+.stats-bar .stat-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 13px;
+
+    background: #ede9fe !important;
+
+    color: #7c3aed !important;
+
+    font-size: 21px;
+}
+
+
+/* =========================
+   NUMBER
+========================= */
+
+.stats-bar .stat-num {
+    margin: 0;
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    color: #7c3aed !important;
+}
+
+
+/* =========================
+   LABEL
+========================= */
+
+.stats-bar .stat-lbl {
+    margin: 0;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    color: #64748b !important;
+
+    text-align: center;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   HOVER
+========================= */
+
+.stats-bar .stat-item {
+    transition: transform 0.3s ease;
+}
+
+.stats-bar .stat-item:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 992px) {
+
+    .stats-bar {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 15px !important;
+    }
+
+    .stats-bar .stat-item {
+        padding: 15px;
+    }
+
+    .stats-bar .stat-item::after {
+        display: none;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 576px) {
+
+    .stats-bar {
+        grid-template-columns: 1fr !important;
+
+        padding: 15px;
+    }
+
+    .stats-bar .stat-item {
+        padding: 15px;
+    }
+
+    .stats-bar .stat-item::after {
+        display: none;
+    }
+
+    .stats-bar .stat-num {
+        font-size: 24px;
+    }
+
+    .stats-bar .stat-lbl {
+        font-size: 13px;
+    }
+
+}
