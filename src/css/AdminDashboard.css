@@ -159,110 +159,11 @@
         display: none;
     }
 
+    .admin-main{
+        padding: 0px !important;
+    }
 }
 
-/* Header */
-
-.admin-header {
-    height: 75px;
-    background: white;
-    border-bottom: 1px solid #e8ebf1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 35px;
-}
-
-.header-left,
-.header-right {
-    display: flex;
-    align-items: center;
-}
-
-.search-box {
-    width: 370px;
-    height: 42px;
-    border: 1px solid #e2e6ee;
-    border-radius: 9px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0 15px;
-    background: #fafbfc;
-}
-
-.search-box span {
-    font-size: 22px;
-    color: #8893a5;
-}
-
-.search-box input {
-    border: none;
-    outline: none;
-    background: transparent;
-    width: 100%;
-    font-size: 13px;
-}
-
-.header-right {
-    gap: 25px;
-}
-
-.header-icon {
-    position: relative;
-    border: none;
-    background: transparent;
-    font-size: 18px;
-    color: #172033;
-    cursor: pointer;
-}
-
-.bell-badge {
-    position: absolute;
-    top: -7px;
-    right: -7px;
-    width: 17px;
-    height: 17px;
-    background: #ff4775;
-    color: white;
-    font-size: 9px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.admin-user {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.admin-avatar {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #6d4aff, #a56cff);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-}
-
-.admin-user-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.admin-user-info strong {
-    font-size: 13px;
-}
-
-.admin-user-info span {
-    color: #8b95a7;
-    font-size: 11px;
-}
 
 /* ================= CONTENT ================= */
 
@@ -435,6 +336,7 @@
     border-left: 1px solid #e7eaf0;
     padding: 15px 15px 0;
     display: flex;
+    border-left: none;
     align-items: flex-end;
 }
 
@@ -452,6 +354,7 @@
 
 .chart {
     width: 100%;
+    border-left: none;
 }
 
 .chart-line {
@@ -568,7 +471,7 @@
 
 .chart-bottom {
     display: flex;
-    justify-content: space-between;
+   
     color: #a0a8b5;
     font-size: 10px;
     padding-top: 10px;
@@ -799,5 +702,647 @@ td {
 
     .dashboard-heading h1 {
         font-size: 24px;
+    }
+}
+
+
+.dark .admin-dashboard {
+  background: #0b1120;
+  color: #f1f5f9;
+}
+
+.dark .admin-main {
+  background: #0b1120;
+}
+
+.dark .dashboard-content {
+  color: #f1f5f9;
+}
+
+.dark .dashboard-heading h1,
+.dark .card-header h2 {
+  color: #f1f5f9;
+}
+
+.dark .dashboard-heading p,
+.dark .card-header p {
+  color: #9ca3af;
+}
+
+.dark .stat-card,
+.dark .dashboard-card {
+  background: #111827;
+  border-color: #263244;
+  box-shadow: none;
+}
+
+.dark .stat-card h3,
+.dark .stat-card p {
+  color: #f1f5f9;
+}
+
+.dark .date-box,
+.dark .card-header select {
+  background: #1f2937;
+  border-color: #374151;
+  color: #f1f5f9;
+}
+
+.dark .quick-action {
+  border-bottom-color: #263244;
+}
+
+.dark .quick-action span {
+  color: #e5e7eb;
+}
+
+.dark .visitor-count {
+  color: #e5e7eb;
+}
+
+.dark .chart-line,
+.dark .chart {
+  border-color: #374151;
+}
+
+/* Recent Messages - Light Mode */
+.messages-card td {
+  color: #000000;
+}
+
+/* Recent Messages - Dark Mode */
+.dark .messages-card td {
+  color: #ffffff;
+}
+
+
+/* =========================================
+   ANIMATED ADMIN DASHBOARD
+   Add at the END of Dashboard.css
+========================================= */
+
+/* Dashboard content entrance */
+.dashboard-content {
+    animation: dashboardFadeIn 0.7s ease both;
+}
+
+@keyframes dashboardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dashboard heading */
+.dashboard-heading {
+    animation: headingEnter 0.6s ease both;
+}
+
+@keyframes headingEnter {
+    from {
+        opacity: 0;
+        transform: translateX(-16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Statistics cards: staggered entrance */
+.stat-card {
+    animation: statCardEnter 0.65s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.stat-card:nth-child(1) {
+    animation-delay: 0.08s;
+}
+
+.stat-card:nth-child(2) {
+    animation-delay: 0.16s;
+}
+
+.stat-card:nth-child(3) {
+    animation-delay: 0.24s;
+}
+
+.stat-card:nth-child(4) {
+    animation-delay: 0.32s;
+}
+
+@keyframes statCardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(22px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Stats card hover */
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(112, 72, 255, 0.25);
+}
+
+/* Statistics icons */
+.stat-icon {
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover .stat-icon {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+/* Dashboard charts and quick action cards */
+.dashboard-grid > *,
+.dashboard-content > .dashboard-card {
+    animation: panelEnter 0.7s ease both;
+    animation-delay: 0.25s;
+}
+
+@keyframes panelEnter {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dashboard-card {
+    transition:
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.dashboard-card:hover {
+    box-shadow: 0 10px 28px rgba(28, 35, 50, 0.07);
+}
+
+/* Visitor chart bars animate upward */
+.visitor-bar {
+    transform-origin: bottom;
+    animation: barGrow 0.8s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+    transition:
+        height 0.35s ease,
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+.visitor-bar-wrapper:nth-child(1) .visitor-bar {
+    animation-delay: 0.08s;
+}
+
+.visitor-bar-wrapper:nth-child(2) .visitor-bar {
+    animation-delay: 0.14s;
+}
+
+.visitor-bar-wrapper:nth-child(3) .visitor-bar {
+    animation-delay: 0.20s;
+}
+
+.visitor-bar-wrapper:nth-child(4) .visitor-bar {
+    animation-delay: 0.26s;
+}
+
+.visitor-bar-wrapper:nth-child(5) .visitor-bar {
+    animation-delay: 0.32s;
+}
+
+.visitor-bar-wrapper:nth-child(6) .visitor-bar {
+    animation-delay: 0.38s;
+}
+
+.visitor-bar-wrapper:nth-child(7) .visitor-bar {
+    animation-delay: 0.44s;
+}
+
+@keyframes barGrow {
+    from {
+        transform: scaleY(0.05);
+        opacity: 0.35;
+    }
+
+    to {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+.visitor-bar-wrapper:hover .visitor-bar {
+    filter: brightness(1.08);
+    transform: scaleX(1.08);
+}
+
+.visitor-count {
+    transition: color 0.25s ease;
+}
+
+/* Quick action hover */
+.quick-action {
+    transition:
+        background-color 0.25s ease,
+        padding-left 0.25s ease;
+}
+
+.quick-action:hover {
+    background-color: rgba(112, 72, 255, 0.045);
+    padding-left: 10px;
+}
+
+.quick-icon {
+    transition: transform 0.3s ease;
+}
+
+.quick-action:hover .quick-icon {
+    transform: scale(1.08);
+}
+
+.quick-action b {
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+.quick-action:hover b {
+    transform: translateX(4px);
+}
+
+/* Buttons */
+.visit-website-btn,
+.view-all,
+.table-action {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+.visit-website-btn:hover,
+.view-all:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(112, 72, 255, 0.15);
+}
+
+.visit-website-btn:active,
+.view-all:active,
+.table-action:active {
+    transform: scale(0.96);
+}
+
+/* Recent messages table rows */
+.messages-card tbody tr {
+    transition: background-color 0.25s ease;
+}
+
+.messages-card tbody tr:hover {
+    background-color: rgba(112, 72, 255, 0.035);
+}
+
+.status {
+    transition: transform 0.25s ease;
+}
+
+.status:hover {
+    transform: scale(1.05);
+}
+
+/* Date filter interaction */
+.card-header select,
+.date-box {
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.card-header select:focus {
+    border-color: #8b75ff;
+    box-shadow: 0 0 0 3px rgba(112, 72, 255, 0.08);
+}
+
+/* Dark mode hover compatibility */
+.dark .stat-card:hover,
+.dark .dashboard-card:hover {
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .dashboard-content,
+    .dashboard-heading,
+    .stat-card,
+    .dashboard-grid > *,
+    .dashboard-content > .dashboard-card,
+    .visitor-bar {
+        animation: none !important;
+    }
+
+    .dashboard-content *,
+    .dashboard-content {
+        transition-duration: 0.2ms !important;
+    }
+}
+
+
+
+/* =========================================
+   SLOW & SMOOTH DASHBOARD ANIMATIONS
+========================================= */
+
+.dashboard-content {
+    animation-duration: 1.5s;
+}
+
+.dashboard-heading {
+    animation-duration: 1.3s;
+}
+
+/* Slow staggered stat cards */
+.stat-card {
+    animation-duration: 1.5s;
+    transition-duration: 0.5s;
+}
+
+.stat-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.stat-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.stat-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.stat-card:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+/* Slow dashboard panels */
+.dashboard-grid > *,
+.dashboard-content > .dashboard-card {
+    animation-duration: 1.5s;
+    animation-delay: 0.7s;
+}
+
+.dashboard-card {
+    transition-duration: 0.5s;
+}
+
+/* Slow chart bar animation */
+.visitor-bar {
+    animation-duration: 1.8s;
+    transition-duration: 0.5s;
+}
+
+.visitor-bar-wrapper:nth-child(1) .visitor-bar {
+    animation-delay: 0.2s;
+}
+
+.visitor-bar-wrapper:nth-child(2) .visitor-bar {
+    animation-delay: 0.35s;
+}
+
+.visitor-bar-wrapper:nth-child(3) .visitor-bar {
+    animation-delay: 0.5s;
+}
+
+.visitor-bar-wrapper:nth-child(4) .visitor-bar {
+    animation-delay: 0.65s;
+}
+
+.visitor-bar-wrapper:nth-child(5) .visitor-bar {
+    animation-delay: 0.8s;
+}
+
+.visitor-bar-wrapper:nth-child(6) .visitor-bar {
+    animation-delay: 0.95s;
+}
+
+.visitor-bar-wrapper:nth-child(7) .visitor-bar {
+    animation-delay: 1.1s;
+}
+
+/* Smooth hover effects */
+.quick-action,
+.quick-icon,
+.visit-website-btn,
+.view-all,
+.table-action,
+.admin-dashboard .stat-icon {
+    transition-duration: 0.4s;
+}
+/* Show a small bar even when visitors are zero */
+.visitor-bar.zero {
+    height: 4px !important;
+    min-height: 4px;
+    opacity: 0.65;
+    border-radius: 6px 6px 0 0;
+}
+
+/* Fix duplicate vertical lines */
+.chart {
+    border-left: none !important;
+}
+
+.chart-line {
+    border-left: none !important;
+    border-bottom: none !important;
+}
+
+/* Keep zero-visitor bars visible */
+.visitor-bar.zero {
+    height: 4px !important;
+    min-height: 4px !important;
+    opacity: 0.65;
+}
+
+
+/* ===== FIX ADMIN DASHBOARD MOBILE WIDTH ===== */
+
+@media (max-width: 700px) {
+    .admin-dashboard {
+        width: 100%;
+        min-width: 0;
+        overflow-x: hidden;
+    }
+
+    .admin-main,
+    .admin-main.sidebar-collapsed-main {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-left: 0 !important;
+        padding: 0 !important;
+    }
+
+    .dashboard-content {
+        width: 100%;
+        min-width: 0;
+        padding: 16px 12px !important;
+    }
+
+    .dashboard-grid {
+        width: 100%;
+        min-width: 0;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 16px;
+    }
+
+    .dashboard-card,
+    .analytics-card,
+    .quick-card {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+}
+
+/* ===== RESPONSIVE WEBSITE VISITORS CHART ===== */
+
+.analytics-card {
+    overflow: hidden;
+}
+
+.analytics-card .card-header {
+    gap: 10px;
+    min-width: 0;
+    flex-wrap: wrap;
+}
+
+.analytics-card .card-header > div {
+    min-width: 0;
+}
+
+.analytics-card .card-header select {
+    max-width: 100%;
+    min-width: 0;
+}
+
+.analytics-card .chart {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 4px 0;
+    overflow: hidden;
+}
+
+.analytics-card .chart-line {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 0;
+    padding: 12px 0 0;
+    overflow: hidden;
+    border: none;
+}
+
+.analytics-card .visitor-bar-wrapper {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 48px;
+}
+
+.analytics-card .visitor-bar {
+    width: 65%;
+    max-width: 30px;
+}
+
+.analytics-card .visitor-count {
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.analytics-card .chart-bottom {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    justify-content: space-between;
+    gap: 0;
+    padding: 10px 0 0;
+    overflow: hidden;
+}
+
+.analytics-card .chart-bottom span {
+    flex: 1 1 0;
+    min-width: 0;
+    font-size: 10px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+@media (max-width: 380px) {
+    .analytics-card,
+    .quick-card {
+        padding: 14px 10px;
+    }
+
+    .analytics-card .chart {
+        padding-inline: 0;
+        height: 200px;
+    }
+
+    .analytics-card .chart-bottom span {
+        font-size: 9px;
+    }
+}
+
+/* ===== RESPONSIVE QUICK ACTIONS ===== */
+
+.quick-card {
+    overflow: hidden;
+}
+
+.quick-card .quick-action {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 2px;
+    box-sizing: border-box;
+}
+
+.quick-card .quick-icon {
+    flex: 0 0 35px;
+}
+
+.quick-card .quick-action span {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.quick-card .quick-action b {
+    flex: 0 0 auto;
+}
+
+@media (max-width: 700px) {
+    .quick-card .card-header h2 {
+        font-size: 16px;
+    }
+
+    .quick-card .quick-action {
+        padding: 12px 0;
     }
 }

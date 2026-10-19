@@ -11,6 +11,7 @@ import {
     FaSignOutAlt,
     FaBars,
     FaTimes,
+    FaJava,
 } from "react-icons/fa";
 
 import "../css/Sidebar.css";
@@ -80,7 +81,7 @@ const Sidebar = ({
         {
             label: "Java Resources",
             path: "/admin/java-resources",
-            icon: FaEnvelope,
+            icon: FaJava,
             badge: true
         }
     ];

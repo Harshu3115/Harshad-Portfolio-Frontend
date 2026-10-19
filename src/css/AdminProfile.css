@@ -14,125 +14,7 @@
     min-height: 100vh;
 }
 
-/* ================= HEADER ================= */
 
-.admin-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 28px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.mobile-menu {
-    display: none;
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 8px 10px;
-    cursor: pointer;
-    color: #0f172a;
-    font-size: 16px;
-}
-
-.search-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 6px 14px;
-    color: #94a3b8;
-}
-
-.search-box input {
-    border: none;
-    outline: none;
-    background: transparent;
-    font-size: 13px;
-    color: #0f172a;
-    width: 180px;
-}
-
-.search-box input::placeholder {
-    color: #94a3b8;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.header-icon {
-    position: relative;
-    background: #fff;
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: #0f172a;
-    font-size: 16px;
-}
-
-.bell-badge {
-    position: absolute;
-    top: -4px;
-    right: -4px;
-    background: #ef4444;
-    color: #fff;
-    font-size: 9px;
-    font-weight: 600;
-    min-width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.admin-user {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: #fff;
-    padding: 4px 12px 4px 4px;
-    cursor: pointer;
-}
-
-.admin-avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: #6366f1;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 13px;
-}
-
-.admin-user-info strong {
-    display: block;
-    font-size: 12px;
-    color: #0f172a;
-}
-
-.admin-user-info span {
-    font-size: 10px;
-    color: #94a3b8;
-}
 
 /* ================= DASHBOARD CONTENT ================= */
 
@@ -796,4 +678,144 @@
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+
+/* ================= PROFILE PAGE DARK MODE ================= */
+
+.dark .admin-profile-page {
+  background: #0b1120;
+  color: #f1f5f9;
+}
+
+.dark .admin-main {
+  background: #0b1120;
+}
+
+.dark .dashboard-content {
+  background: #0b1120;
+  color: #f1f5f9;
+}
+
+/* Page headings */
+.dark .dashboard-heading h1,
+.dark .section-title {
+  color: #f1f5f9;
+}
+
+.dark .dashboard-heading p {
+  color: #9ca3af;
+}
+
+/* Profile card */
+.dark .profile-card,
+.dark .profile-image-upload,
+.dark .resume-upload-card {
+  background: #111827;
+  border-color: #263244;
+  color: #f1f5f9;
+}
+
+/* Section borders */
+.dark .section-title,
+.dark .form-actions,
+.dark .admin-footer {
+  border-color: #263244;
+}
+
+/* Form labels */
+.dark .form-group label {
+  color: #e5e7eb;
+}
+
+/* Input fields */
+.dark .form-group input,
+.dark .form-group textarea {
+  background: #1f2937;
+  color: #f9fafb;
+  border-color: #374151;
+}
+
+.dark .form-group input::placeholder,
+.dark .form-group textarea::placeholder {
+  color: #9ca3af;
+}
+
+.dark .form-group input:focus,
+.dark .form-group textarea:focus {
+  background: #111827;
+  border-color: #818cf8;
+}
+
+/* Profile image preview */
+.dark .profile-image-preview {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+.dark .profile-image-preview p {
+  color: #9ca3af;
+}
+
+/* Image and resume upload areas */
+.dark .profile-file-input label,
+.dark .resume-file-input label {
+  background: #1f2937;
+  border-color: #4b5563;
+  color: #e5e7eb;
+}
+
+.dark .profile-file-input label span {
+  color: #d1d5db;
+}
+
+.dark .profile-file-input label:hover,
+.dark .resume-file-input label:hover {
+  background: #273449;
+}
+
+/* Current resume */
+.dark .resume-upload-header h3 {
+  color: #f1f5f9;
+}
+
+.dark .resume-upload-header p,
+.dark .current-resume span {
+  color: #9ca3af;
+}
+
+.dark .current-resume {
+  background: #1f2937;
+}
+
+/* Upload messages */
+.dark .profile-image-message,
+.dark .resume-message {
+  background: #1f2937;
+  color: #d1d5db;
+}
+
+/* Date box and footer */
+.dark .date-box {
+  background: #1f2937;
+  border-color: #374151;
+  color: #f1f5f9;
+}
+
+.dark .admin-footer {
+  color: #9ca3af;
+}
+
+/* Smooth theme transition */
+.admin-profile-page,
+.profile-card,
+.profile-image-upload,
+.resume-upload-card,
+.form-group input,
+.form-group textarea,
+.current-resume {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
 }

@@ -9,6 +9,8 @@ import Sidebar from "../components/Sidebar";
 import { useNavigate } from "react-router-dom";
 
 import { FaJava, FaPlus, FaEdit, FaTrash, FaBars, FaBell } from "react-icons/fa";
+import Topbar from "../components/Topbar";
+import ConfirmModal from "../components/ConfirmModal";
 
 const initialForm = {
 
@@ -48,7 +50,12 @@ export default function JavaResourcesAdmin() {
 
     const [isMobileOpen, setIsMobileOpen] = useState(false);
 
-    const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+    const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
+
+    const [deleteModal, setDeleteModal] = useState({
+        isOpen: false,
+        id: null
+    });
 
     const [stats, setStats] = useState({
 
@@ -63,6 +70,8 @@ export default function JavaResourcesAdmin() {
         unreadMessages: 0
 
     });
+
+
 
     const admin = (() => {
         try {
@@ -248,36 +257,53 @@ export default function JavaResourcesAdmin() {
 
     };
 
-    const handleDelete = async (resource) => {
+    // ==============================
+    // CONFIRM DELETE
+    // ==============================
 
-        if (!window.confirm(`Delete "${resource.title}"?`)) return;
+    const confirmDelete = (id) => {
+        setDeleteModal({
+            isOpen: true,
+            id: id
+        });
+    };
+
+    // ==============================
+    // CLOSE DELETE MODAL
+    // ==============================
+
+    const closeDeleteModal = () => {
+        setDeleteModal({
+            isOpen: false,
+            id: null
+        });
+    };
+
+    const handleDelete = async () => {
+        if (!selectedResource) return;
 
         setError("");
-
         setMessage("");
 
         try {
-
-            await API.delete(`/java-resources/admin/${resource.id}`);
+            await API.delete(
+                `/java-resources/admin/${selectedResource.id}`
+            );
 
             setMessage("Resource deleted successfully!");
 
-            if (editingId === resource.id) resetForm();
+            if (editingId === selectedResource.id) {
+                resetForm();
+            }
 
+            closeDeleteModal();
             await loadResources();
-
         } catch (err) {
-
             setError(
-
                 err.response?.data?.message ||
-
                 "Unable to delete resource."
-
             );
-
         }
-
     };
 
     return (
@@ -312,83 +338,10 @@ export default function JavaResourcesAdmin() {
 
                 >
 
-                    <header className="admin-header">
-
-                        <div className="header-left">
-
-                            <button className="mobile-menu" onClick={toggleSidebar} aria-label="Toggle menu">
-
-                                <FaBars />
-
-                            </button>
-
-                            <div className="search-box">
-
-                                <span>⌕</span>
-
-                                <input
-
-                                    type="text"
-
-                                    placeholder="Search something..."
-
-                                />
-
-                            </div>
-
-                        </div>
-
-                        <div className="header-right">
-
-                            <button className="header-icon">
-
-                                <FaBell />
-
-                                {stats.unreadMessages > 0 && (
-
-                                    <span className="bell-badge">
-
-                                        {stats.unreadMessages}
-
-                                    </span>
-
-                                )}
-
-                            </button>
-
-                            <div className="admin-user">
-
-                                <div className="admin-avatar">
-
-                                    {admin?.name
-
-                                        ?.charAt(0)
-
-                                        ?.toUpperCase() || "H"}
-
-                                </div>
-
-                                <div className="admin-user-info">
-
-                                    <strong>
-
-                                        {admin?.name || "Harshad"}
-
-                                    </strong>
-
-                                    <span>
-
-                                        Administrator
-
-                                    </span>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </header>
+                    <Topbar
+                        unreadMessages={stats.unreadMessages}
+                        toggleSidebar={toggleSidebar}
+                    />
 
                     <div className="admin-java-resources">
                         {message && (
@@ -790,7 +743,7 @@ export default function JavaResourcesAdmin() {
 
                                                                 onClick={() =>
 
-                                                                    handleDelete(resource)
+                                                                    confirmDelete(resource.id)
 
                                                                 }
 
@@ -823,6 +776,22 @@ export default function JavaResourcesAdmin() {
                 </main>
 
             </div>
+
+
+
+            {/* Delete Confirmation Modal */}
+
+            <ConfirmModal
+                isOpen={deleteModal.isOpen}
+                onClose={closeDeleteModal}
+                onConfirm={handleDelete}
+                title="Delete Message"
+                message="Are you sure you want to delete this message? This action cannot be undone."
+                confirmText="Delete"
+                cancelText="Cancel"
+                type="danger"
+            />
+
 
         </>
 

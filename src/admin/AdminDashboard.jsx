@@ -16,6 +16,44 @@ import {
 
 import "../css/AdminDashboard.css";
 import Sidebar from "../components/Sidebar";
+import Topbar from "../components/Topbar";
+
+const AnimatedNumber = ({ value, duration = 1200 }) => {
+    const target = Math.max(0, Number(value) || 0);
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        let animationFrame;
+        let startTime = null;
+
+        const animate = (timestamp) => {
+            if (startTime === null) startTime = timestamp;
+
+            const progress = Math.min(
+                (timestamp - startTime) / duration,
+                1
+            );
+
+            // Smooth ease-out animation
+            const easedProgress = 1 - Math.pow(1 - progress, 4);
+
+            setCount(Math.floor(easedProgress * target));
+
+            if (progress < 1) {
+                animationFrame = requestAnimationFrame(animate);
+            } else {
+                setCount(target);
+            }
+        };
+
+        setCount(0);
+        animationFrame = requestAnimationFrame(animate);
+
+        return () => cancelAnimationFrame(animationFrame);
+    }, [target, duration]);
+
+    return <>{count.toLocaleString("en-IN")}</>;
+};
 
 const AdminDashboard = () => {
 
@@ -33,7 +71,7 @@ const AdminDashboard = () => {
     const [recentMessages, setRecentMessages] = useState([]);
     const [visitorStats, setVisitorStats] = useState([]);
     const [isMobileOpen, setIsMobileOpen] = useState(false);
-    const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+    const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
 
 
     const [visitorDays, setVisitorDays] = useState(7);
@@ -236,72 +274,10 @@ const AdminDashboard = () => {
                 className={`admin-main ${sidebarCollapsed ? "sidebar-collapsed-main" : ""
                     }`}
             >
-                {/* Top Header */}
-
-                <header className="admin-header">
-
-                    <div className="header-left">
-
-
-
-                        <button className="mobile-menu" onClick={toggleSidebar} aria-label="Toggle menu">
-                            <FaBars />
-                        </button>
-
-                        <div className="search-box">
-
-                            <span>⌕</span>
-
-                            <input
-                                type="text"
-                                placeholder="Search something..."
-                            />
-
-                        </div>
-
-                    </div>
-
-
-                    <div className="header-right">
-
-
-                        <button className="header-icon">
-                            <FaBell />
-
-                            {stats.unreadMessages > 0 && (
-                                <span className="bell-badge">
-                                    {stats.unreadMessages}
-                                </span>
-                            )}
-
-                        </button>
-
-
-                        <div className="admin-user">
-
-                            <div className="admin-avatar">
-                                {admin?.name
-                                    ?.charAt(0)
-                                    ?.toUpperCase() || "H"}
-                            </div>
-
-                            <div className="admin-user-info">
-
-                                <strong>
-                                    {admin?.name || "Harshad"}
-                                </strong>
-
-                                <span>
-                                    Administrator
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </header>
+                <Topbar
+                    unreadMessages={stats.unreadMessages}
+                    toggleSidebar={toggleSidebar}
+                />
 
 
                 {/* Dashboard Content */}
@@ -353,7 +329,7 @@ const AdminDashboard = () => {
                             </div>
 
                             <h3>
-                                {loading ? "..." : stats.projects}
+                                {loading ? "..." : <AnimatedNumber value={stats.projects} />}
                             </h3>
                             <p>
                                 Total Projects
@@ -383,7 +359,7 @@ const AdminDashboard = () => {
                             </div>
 
                             <h3>
-                                {loading ? "..." : stats.skills}
+                                {loading ? "..." : <AnimatedNumber value={stats.skills} />}
                             </h3>
 
                             <p>
@@ -414,7 +390,7 @@ const AdminDashboard = () => {
                             </div>
 
                             <h3>
-                                {loading ? "..." : stats.experience}
+                                {loading ? "..." : <AnimatedNumber value={stats.experience} />}
                             </h3>
 
                             <p>
@@ -445,7 +421,7 @@ const AdminDashboard = () => {
                             </div>
 
                             <h3>
-                                {loading ? "..." : stats.messages}
+                                {loading ? "..." : <AnimatedNumber value={stats.messages} />}
                             </h3>
 
                             <p>
@@ -527,7 +503,7 @@ const AdminDashboard = () => {
                                                     style={{
                                                         height:
                                                             visitors === 0
-                                                                ? "2px"
+                                                                ? "4px"
                                                                 : `${Math.max(height, 8)}%`
                                                     }}
                                                 />

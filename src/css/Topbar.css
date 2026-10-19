@@ -1,0 +1,622 @@
+
+/* ================= TOPBAR ================= */
+
+.admin-header {
+  width: 100%;
+  min-height: 65px;
+  padding: 0 35px;
+  background: #ffffff;
+  border-bottom: 1px solid #e8ebf1;
+margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
+}
+
+/* ================= LEFT SECTION ================= */
+
+.header-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.mobile-menu {
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background: transparent;
+  color: #172033;
+
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 15px;
+  padding: 8px;
+}
+
+/* ================= SEARCH BOX ================= */
+
+.search-box {
+  width: 370px;
+  max-width: 100%;
+  height: 42px;
+  padding: 0 15px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border: 1px solid #e2e6ee;
+  border-radius: 9px;
+  background: #fafbfc;
+
+  box-sizing: border-box;
+  transition: border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.search-box:focus-within {
+  border-color: #8b75ff;
+  box-shadow: 0 0 0 3px rgba(112, 72, 255, 0.08);
+}
+
+.search-box > span {
+  font-size: 23px;
+  line-height: 1;
+  color: #8893a5;
+}
+
+.search-box input {
+  width: 100%;
+  min-width: 0;
+
+  border: none;
+  outline: none;
+  background: transparent;
+
+  color: #172033;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.search-box input::placeholder {
+  color: #9aa3b2;
+}
+
+/* ================= RIGHT SECTION ================= */
+
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* ================= NOTIFICATION ================= */
+
+.header-icon {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+
+  color: #172033;
+  font-size: 18px;
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.header-icon:hover {
+  background: #f3f1ff;
+}
+
+.bell-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  min-width: 17px;
+  height: 17px;
+  padding: 0 3px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+
+  background: #ff4775;
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+/* ================= ADMIN PROFILE ================= */
+
+.admin-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.admin-avatar {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6d4aff, #a56cff);
+
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.admin-user-info {
+  display: flex;
+  flex-direction: column;
+  /* gap: 4px; */
+  min-width: 0;
+}
+
+.admin-user-info strong {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: #172033;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.admin-user-info span {
+  color: #8b95a7;
+  font-size: 11px;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1024px) {
+  .admin-header {
+    padding: 0 22px;
+  }
+
+  .search-box {
+    width: 300px;
+  }
+
+  .header-right {
+    gap: 16px;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .admin-header {
+    min-height: 68px;
+    padding: 0 15px;
+    gap: 10px;
+  }
+
+  .mobile-menu {
+    display: flex;
+    margin-right: 8px;
+  }
+
+  .header-left {
+    flex: 1;
+  }
+
+  .search-box {
+    width: 100%;
+    height: 39px;
+    padding: 0 10px;
+  }
+
+  .search-box input {
+    font-size: 12px;
+  }
+
+  .header-right {
+    gap: 8px;
+  }
+
+  .admin-user {
+    gap: 0;
+  }
+
+  .admin-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .admin-user-info {
+    display: none;
+  }
+
+  .header-icon {
+    width: 34px;
+    height: 36px;
+    font-size: 17px;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 400px) {
+  .admin-header {
+    padding: 0 10px;
+    gap: 5px;
+  }
+
+  .mobile-menu {
+    margin-right: 3px;
+    padding: 6px;
+    font-size: 18px;
+  }
+
+  .search-box {
+    height: 36px;
+    gap: 6px;
+    padding: 0 8px;
+  }
+
+  .search-box > span {
+    font-size: 20px;
+  }
+
+  .search-box input {
+    font-size: 11px;
+  }
+
+  .header-right {
+    gap: 3px;
+  }
+
+  .admin-avatar {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+
+/* ================= THEME TOGGLE ================= */
+
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  /* border-radius: 10px; */
+  background: #ffffff;
+  color: #475569;
+
+  font-size: 17px;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.theme-toggle:hover {
+  /* background: #f3f1ff; */
+  color: #7048ff;
+  /* transform: rotate(10deg); */
+}
+
+/* Dark mode topbar */
+
+.dark .admin-header {
+  background: #111827;
+  border-bottom-color: #263244;
+}
+
+.dark .search-box {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+.dark .search-box input {
+  color: #f9fafb;
+}
+
+.dark .search-box input::placeholder,
+.dark .search-box > span {
+  color: #9ca3af;
+}
+
+.dark .header-icon {
+  color: #f9fafb;
+}
+
+.dark .header-icon:hover {
+  background: #374151;
+}
+
+.dark .admin-user-info strong {
+  color: #f9fafb;
+}
+
+.dark .admin-user-info span {
+  color: #9ca3af;
+}
+
+.dark .theme-toggle {
+  background: none;
+  /* border-color: #374151; */
+  color: #facc15;
+}
+
+.dark .theme-toggle:hover {
+  /* background: #374151; */
+  color: #fde68a;
+}
+
+@media (max-width: 400px) {
+  .theme-toggle {
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+  }
+}
+
+/* Smooth and slow continuous rotation */
+
+.dark .theme-toggle svg {
+  animation: moonRotate 8s linear infinite;
+  transform-origin: center;
+}
+
+/* Pause rotation on hover */
+
+.dark .theme-toggle:hover svg {
+  animation-play-state: paused;
+}
+
+@keyframes moonRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================
+   ANIMATED TOPBAR
+   Add at the END of Topbar.css
+========================================= */
+
+/* Topbar entrance animation */
+.admin-header {
+    animation: topbarSlideDown 0.7s cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+    transform-origin: top center;
+}
+
+@keyframes topbarSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Search box entrance and focus animation */
+.search-box {
+    animation: searchFadeIn 0.8s ease both;
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+@keyframes searchFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.search-box:focus-within {
+    transform: translateY(-1px);
+}
+
+/* Search icon animation */
+.search-box > span {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.search-box:focus-within > span {
+    color: #7048ff;
+    transform: scale(1.15);
+}
+
+/* Header buttons hover animation */
+.header-icon,
+.theme-toggle {
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.header-icon:hover {
+    transform: translateY(-2px);
+}
+
+.header-icon:active,
+.theme-toggle:active {
+    transform: scale(0.9);
+}
+
+/* Notification bell animation on hover */
+.header-icon:hover svg {
+    animation: bellShake 0.6s ease;
+}
+
+@keyframes bellShake {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+
+    20%, 60% {
+        transform: rotate(-12deg);
+    }
+
+    40%, 80% {
+        transform: rotate(12deg);
+    }
+}
+
+/* Notification badge pulse */
+.bell-badge {
+    animation: badgePop 0.5s ease both;
+    transform-origin: center;
+}
+
+@keyframes badgePop {
+    0% {
+        opacity: 0;
+        transform: scale(0.4);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Theme toggle animation */
+.theme-toggle svg {
+    transition: transform 0.4s ease;
+}
+
+.theme-toggle:hover svg {
+    transform: rotate(20deg) scale(1.12);
+}
+
+/* Admin avatar hover animation */
+.admin-avatar {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.admin-avatar:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 14px rgba(109, 74, 255, 0.25);
+}
+
+/* Admin name subtle entrance */
+.admin-user-info {
+    animation: userInfoFadeIn 0.7s ease both;
+    animation-delay: 0.2s;
+}
+
+@keyframes userInfoFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Mobile menu button animation */
+.mobile-menu {
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.mobile-menu:hover {
+    color: #7048ff;
+    transform: scale(1.08);
+}
+
+.mobile-menu:active {
+    transform: scale(0.92);
+}
+
+/* Smooth dark theme transitions */
+.admin-header,
+.search-box,
+.search-box input,
+.header-icon,
+.theme-toggle,
+.admin-user-info strong,
+.admin-user-info span {
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
+}
+
+/* Accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .admin-header,
+    .search-box,
+    .admin-user-info,
+    .bell-badge,
+    .header-icon:hover svg {
+        animation: none !important;
+    }
+
+    .admin-header *,
+    .admin-header {
+        transition-duration: 0.01ms !important;
+    }
+}

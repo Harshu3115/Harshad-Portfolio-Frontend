@@ -16,7 +16,7 @@
 }
 
 .admin-java-resources{
-    padding: 32px;
+    padding: 15px;
 }
 
 .jra-admin-page .admin-main.sidebar-collapsed-main {
@@ -388,5 +388,422 @@
 
     .jra-full-width {
         grid-column: auto;
+    }
+}
+
+
+/* ================= JAVA RESOURCES ADMIN DARK MODE ================= */
+
+.dark .jra-admin-page {
+  background: #0b1120;
+  color: #f1f5f9;
+}
+
+.dark .jra-admin-page .admin-main {
+  background: #0b1120;
+}
+
+.dark .admin-java-resources {
+  color: #f1f5f9;
+}
+
+/* Header */
+.dark .jra-admin-page .admin-header {
+  border-bottom-color: #263244;
+}
+
+.dark .jra-admin-page .admin-header h1,
+.dark .jra-form-card h2,
+.dark .jra-table-header h2,
+.dark .jra-resource-name strong {
+  color: #f1f5f9;
+}
+
+.dark .jra-admin-page .admin-header p {
+  color: #9ca3af;
+}
+
+/* Cards */
+.dark .jra-form-card,
+.dark .jra-table-card {
+  background: #111827;
+  border-color: #263244;
+}
+
+/* Form */
+.dark .jra-form-group label,
+.dark .jra-publish {
+  color: #e5e7eb;
+}
+
+.dark .jra-form-group input,
+.dark .jra-form-group select,
+.dark .jra-form-group textarea {
+  background: #1f2937;
+  color: #f9fafb;
+  border-color: #374151;
+}
+
+.dark .jra-form-group input::placeholder,
+.dark .jra-form-group textarea::placeholder {
+  color: #9ca3af;
+}
+
+.dark .jra-form-group input:focus,
+.dark .jra-form-group select:focus,
+.dark .jra-form-group textarea:focus {
+  background: #111827;
+  border-color: #818cf8;
+}
+
+.dark .jra-form-group input:disabled {
+  background: #273449;
+  color: #9ca3af;
+}
+
+.dark .jra-form-group small {
+  color: #9ca3af;
+}
+
+.dark .jra-publish input {
+  accent-color: #818cf8;
+}
+
+/* Cancel button */
+.dark .jra-form-actions .jra-cancel-btn {
+  background: #1f2937;
+  color: #e5e7eb;
+  border-color: #374151;
+}
+
+.dark .jra-form-actions .jra-cancel-btn:hover {
+  background: #374151;
+}
+
+/* Table header */
+.dark .jra-table-header {
+  border-bottom-color: #263244;
+}
+
+.dark .jra-table-header .available-badge {
+  background: #273449;
+  color: #d1d5db;
+}
+
+/* Table */
+.dark .jra-table thead {
+  background: #1f2937;
+}
+
+.dark .jra-table th {
+  color: #9ca3af;
+}
+
+.dark .jra-table td {
+  color: #e5e7eb;
+  border-top-color: #263244;
+}
+
+.dark .jra-table tbody tr:hover {
+  background: #1f2937;
+}
+
+.dark .jra-resource-name small {
+  color: #9ca3af;
+}
+
+/* Resource icons */
+.dark .jra-resource-name > svg {
+  color: #a5b4fc;
+}
+
+/* Status badges */
+.dark .jra-status.published {
+  background: #14532d;
+  color: #86efac;
+}
+
+.dark .jra-status.draft {
+  background: #453719;
+  color: #fcd34d;
+}
+
+/* Table action buttons */
+.dark .jra-table-actions a,
+.dark .jra-table-actions button {
+  background: #1f2937;
+  color: #e5e7eb;
+  border-color: #374151;
+}
+
+.dark .jra-table-actions a:hover,
+.dark .jra-table-actions button:hover {
+  background: #273449;
+  border-color: #818cf8;
+  color: #c7d2fe;
+}
+
+.dark .jra-table-actions .jra-delete-btn {
+  background: #451a1a;
+  color: #fca5a5;
+  border-color: #7f1d1d;
+}
+
+.dark .jra-table-actions .jra-delete-btn:hover {
+  background: #7f1d1d;
+  color: #fecaca;
+}
+
+/* Success and error messages */
+.dark .jra-success {
+  background: #14532d;
+  color: #bbf7d0;
+}
+
+.dark .jra-error {
+  background: #451a1a;
+  color: #fecaca;
+}
+
+.dark .jra-empty {
+  color: #9ca3af;
+}
+
+/* Scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #111827;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Smooth transitions */
+.jra-admin-page,
+.jra-form-card,
+.jra-table-card,
+.jra-table td,
+.jra-table th,
+.jra-form-group input,
+.jra-form-group select,
+.jra-form-group textarea,
+.jra-table-actions a,
+.jra-table-actions button {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+
+/* ================= JAVA RESOURCES PAGE ANIMATIONS ================= */
+
+
+/* Fix: Do not transform the parent of a fixed sidebar */
+.jra-admin-page {
+    animation: jraPageFadeIn 0.6s ease-out both;
+}
+
+@keyframes jraPageFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Keep sidebar fixed to the viewport */
+.admin-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    min-height: 100vh;
+    z-index: 100;
+}
+
+
+/* Header animation */
+.jra-admin-page .admin-header {
+    animation: jraHeaderEnter 0.7s ease-out both;
+}
+
+@keyframes jraHeaderEnter {
+    from {
+        opacity: 0;
+        transform: translateX(-18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Form and table cards */
+.jra-form-card,
+.jra-table-card {
+    animation: jraCardEnter 0.65s ease-out both;
+    transition:
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.jra-form-card {
+    animation-delay: 0.1s;
+}
+
+.jra-table-card {
+    animation-delay: 0.2s;
+}
+
+@keyframes jraCardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(22px) scale(0.99);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.jra-form-card:hover,
+.jra-table-card:hover {
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+/* Add button animation */
+.jra-add-btn,
+.jra-form-actions button {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.jra-add-btn:hover,
+.jra-form-actions button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.25);
+}
+
+.jra-add-btn:active,
+.jra-form-actions button:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+/* Form fields */
+.jra-form-group input,
+.jra-form-group select,
+.jra-form-group textarea {
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.jra-form-group input:focus,
+.jra-form-group select:focus,
+.jra-form-group textarea:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+/* Table rows appear smoothly */
+.jra-table tbody tr {
+    animation: jraRowEnter 0.4s ease-out both;
+    transition: background-color 0.25s ease;
+}
+
+@keyframes jraRowEnter {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger the first 8 rows */
+.jra-table tbody tr:nth-child(1) { animation-delay: 0.04s; }
+.jra-table tbody tr:nth-child(2) { animation-delay: 0.08s; }
+.jra-table tbody tr:nth-child(3) { animation-delay: 0.12s; }
+.jra-table tbody tr:nth-child(4) { animation-delay: 0.16s; }
+.jra-table tbody tr:nth-child(5) { animation-delay: 0.20s; }
+.jra-table tbody tr:nth-child(6) { animation-delay: 0.24s; }
+.jra-table tbody tr:nth-child(7) { animation-delay: 0.28s; }
+.jra-table tbody tr:nth-child(8) { animation-delay: 0.32s; }
+
+/* Action buttons */
+.jra-table-actions a,
+.jra-table-actions button {
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.jra-table-actions a:hover,
+.jra-table-actions button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+}
+
+/* Status badges */
+.jra-status {
+    transition: transform 0.2s ease;
+}
+
+.jra-status:hover {
+    transform: scale(1.05);
+}
+
+/* Success and error messages */
+.jra-success,
+.jra-error {
+    animation: jraMessageEnter 0.35s ease-out both;
+}
+
+@keyframes jraMessageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Respect accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+    .jra-admin-page,
+    .jra-admin-page .admin-header,
+    .jra-form-card,
+    .jra-table-card,
+    .jra-table tbody tr,
+    .jra-success,
+    .jra-error {
+        animation: none !important;
+    }
+
+    .jra-admin-page *,
+    .jra-admin-page *::before,
+    .jra-admin-page *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }

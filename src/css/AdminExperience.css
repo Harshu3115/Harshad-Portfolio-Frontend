@@ -14,140 +14,7 @@
     min-height: 100vh;
 }
 
-/* ================= HEADER ================= */
 
-.admin-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 28px;
-    padding: 16px 32px 14px 32px;
-    border-bottom: 1px solid #e2e8f0;
-    background: #fff;
-}
-
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.mobile-menu {
-    display: none;
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 8px 10px;
-    cursor: pointer;
-    color: #0f172a;
-    font-size: 16px;
-}
-
-.search-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 6px 14px;
-    color: #94a3b8;
-}
-
-.search-box input {
-    border: none;
-    outline: none;
-    background: transparent;
-    font-size: 13px;
-    color: #0f172a;
-    width: 180px;
-}
-
-.search-box input::placeholder {
-    color: #94a3b8;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.header-icon {
-    position: relative;
-    background: #fff;
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: #0f172a;
-    font-size: 16px;
-}
-
-.bell-badge {
-    position: absolute;
-    top: -4px;
-    right: -4px;
-    background: #ef4444;
-    color: #fff;
-    font-size: 9px;
-    font-weight: 600;
-    min-width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.admin-main {
-    margin-left: 260px;
-    width: calc(100% - 260px);
-
-    transition:
-        margin-left 0.3s ease,
-        width 0.3s ease;
-}
-
-.admin-main.sidebar-collapsed-main {
-    margin-left: 80px;
-    width: calc(100% - 80px);
-}
-
-.admin-user {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: #fff;
-    padding: 4px 12px 4px 4px;
-    cursor: pointer;
-}
-
-.admin-avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: #6366f1;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 13px;
-}
-
-.admin-user-info strong {
-    display: block;
-    font-size: 12px;
-    color: #0f172a;
-}
-
-.admin-user-info span {
-    font-size: 10px;
-    color: #94a3b8;
-}
 
 /* ================= DASHBOARD CONTENT ================= */
 
@@ -683,4 +550,164 @@
 
 ::-webkit-scrollbar-thumb:hover {
     background: #94a3b8;
+}
+
+
+/* ================= EXPERIENCE PAGE DARK MODE ================= */
+
+.dark .admin-experience-page {
+  background: #0b1120;
+  color: #f1f5f9;
+}
+
+.dark .admin-main,
+.dark .dashboard-content {
+  background: #0b1120;
+  color: #f1f5f9;
+}
+
+/* Headings */
+.dark .dashboard-heading h1,
+.dark .experience-form-card h2,
+.dark .experience-card-header h2,
+.dark .experience-info strong {
+  color: #f1f5f9;
+}
+
+.dark .dashboard-heading p {
+  color: #9ca3af;
+}
+
+/* Form and Experience Cards */
+.dark .experience-form-card,
+.dark .experience-card {
+  background: #111827;
+  border-color: #263244;
+}
+
+/* Form fields */
+.dark .form-group label,
+.dark .checkbox-group label {
+  color: #e5e7eb;
+}
+
+.dark .form-group input,
+.dark .form-group textarea {
+  background: #1f2937;
+  color: #f9fafb;
+  border-color: #374151;
+}
+
+.dark .form-group input::placeholder,
+.dark .form-group textarea::placeholder {
+  color: #9ca3af;
+}
+
+.dark .form-group input:focus,
+.dark .form-group textarea:focus {
+  background: #111827;
+  border-color: #818cf8;
+}
+
+.dark .form-group input:disabled {
+  background: #273449;
+  color: #9ca3af;
+}
+
+/* Cancel button */
+.dark .cancel-btn {
+  background: #1f2937;
+  color: #f1f5f9;
+  border-color: #374151;
+}
+
+.dark .cancel-btn:hover {
+  background: #374151;
+}
+
+/* Experience table */
+.dark .experience-card-header {
+  border-bottom-color: #263244;
+}
+
+.dark .experience-table thead {
+  background: #1f2937;
+}
+
+.dark .experience-table th {
+  color: #9ca3af;
+}
+
+.dark .experience-table td {
+  color: #e5e7eb;
+  border-top-color: #263244;
+}
+
+.dark .experience-table tbody tr:hover {
+  background: #1f2937;
+}
+
+/* Experience icon */
+.dark .experience-icon {
+  background: #273449;
+  color: #a5b4fc;
+}
+
+/* Experience count */
+.dark .experience-count,
+.dark .past-badge {
+  background: #273449;
+  color: #e5e7eb;
+}
+
+/* Current badge remains readable */
+.dark .current-badge {
+  background: #1e3a5f;
+  color: #93c5fd;
+}
+
+/* Empty state and loading */
+.dark .empty-state h3 {
+  color: #f1f5f9;
+}
+
+.dark .empty-state p,
+.dark .loading {
+  color: #9ca3af;
+}
+
+/* Date box */
+.dark .date-box {
+  background: #1f2937;
+  border-color: #374151;
+  color: #f1f5f9;
+}
+
+/* Footer */
+.dark .admin-footer {
+  border-top-color: #263244;
+  color: #9ca3af;
+}
+
+/* Scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #111827;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+/* Smooth transition */
+.admin-experience-page,
+.experience-form-card,
+.experience-card,
+.experience-table td,
+.experience-table th,
+.form-group input,
+.form-group textarea {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
 }

@@ -15,6 +15,7 @@ import API from "../services/api";
 import Sidebar from "../components/Sidebar";
 import ConfirmModal from "../components/ConfirmModal";
 import "../css/AdminSkills.css";
+import Topbar from "../components/Topbar";
 
 const AdminSkills = () => {
 
@@ -30,7 +31,7 @@ const AdminSkills = () => {
         id: null
     });
     const [isMobileOpen, setIsMobileOpen] = useState(false);
-    const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+    const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
 
     const toggleSidebar = () => {
         setIsMobileOpen((prev) => !prev);
@@ -50,6 +51,14 @@ const AdminSkills = () => {
         proficiency: 0,
         icon: "",
         display_order: 0
+    });
+
+    const [stats, setStats] = useState({
+        projects: 0,
+        skills: 0,
+        experience: 0,
+        messages: 0,
+        unreadMessages: 0
     });
 
     // ===============================
@@ -427,54 +436,10 @@ const AdminSkills = () => {
                     }`}
             >
 
-                {/* Header */}
-
-                <header className="admin-header">
-
-                    <div className="header-left">
-
-                        <button
-                            className="mobile-menu"
-                            onClick={toggleSidebar}
-                            aria-label="Toggle menu"
-                        >
-                            <FaBars />
-                        </button>
-
-                        <div className="search-box">
-                            <span>⌕</span>
-                            <input
-                                type="text"
-                                placeholder="Search..."
-                            />
-                        </div>
-
-                    </div>
-
-                    <div className="header-right">
-
-                        <button className="header-icon">
-                            <FaBell />
-                            {unreadMessages > 0 && (
-                                <span className="bell-badge">
-                                    {unreadMessages}
-                                </span>
-                            )}
-                        </button>
-
-                        <div className="admin-user">
-                            <div className="admin-avatar">
-                                {admin?.name?.charAt(0)?.toUpperCase() || "H"}
-                            </div>
-                            <div className="admin-user-info">
-                                <strong>{admin?.name || "Harshad"}</strong>
-                                <span>Administrator</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </header>
+                <Topbar
+                    unreadMessages={stats.unreadMessages}
+                    toggleSidebar={toggleSidebar}
+                />
 
                 {/* Content */}
 
